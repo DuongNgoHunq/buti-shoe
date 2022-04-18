@@ -6,11 +6,13 @@ module.exports = {
       firstName: 'DNH',
       password: '123456', //plain text
       lastName: '1118',
-      address: 'USA',
       email: 'duongngohung1118@2gmail.com',
+      phoneNumber: '0335381286',
+      address: 'USA',
       gender: 1,
-      typeRole: 'ROLE',
-      keyRole: 'R1',
+      image: '1 ban nam rat dep trai',
+      roleId: 'R1',
+      positionId: 'Doctor',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
