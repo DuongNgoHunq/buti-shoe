@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import { resolve } from 'path';
 import db from '../models/index';
 
-
 const salt = bcrypt.genSaltSync(10);
 
 let createNewUser = async (data) => {
