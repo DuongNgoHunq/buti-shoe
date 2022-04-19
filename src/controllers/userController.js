@@ -10,17 +10,30 @@ let handleLogin = async (req, res) => {
         })
     }
     let userData = await userService.handleUserLogin(email, password);
-    // check email exist
-    // compare password 
-    // return userInfor (xem co quyen gi)
-    // access_token: JWT
     return res.status(200).json({
         errCode: userData.errCode,
         message: userData.errMessage,
         user: userData.user ? userData.user : {}
     })
 }
+let handleGetAllUser = async (req, res) => {
+    let id = req.body.id; //ALL, ID
 
+    if (!id) {
+        return res.status(200).json({
+            errCode: 1,
+            errMessage: 'Missing required parameters',
+            users: []
+        })
+    }
+    let users = await userService.getAllUser(id)
+
+    return res.status(200).json({
+        errCode: 0,
+        errMessage: 'Ok',
+        users
+    })
+}
 module.exports = {
-    handleLogin,
+    handleLogin, handleGetAllUser
 }

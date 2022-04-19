@@ -16,6 +16,7 @@ let initWebRouter = (app) => {
 
 
     router.post('/api/login', userController.handleLogin)
+    router.get('/api/get-all-user', userController.handleGetAllUser)
     router.get('/dnh', (req, res) => {
         return res.render("crud.ejs")
     });
