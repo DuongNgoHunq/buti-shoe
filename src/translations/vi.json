@@ -1,4 +1,16 @@
 {
+    "homeheader": {
+        "homeindex": "Trang chủ",
+        "product": "Sản phẩm",
+        "brand": "Thương hiệu",
+        "new": "Tin Tức",
+        "contact": "Liên hệ"
+    },
+    "banner": {
+        "title": "Giày Thời Trang",
+        "description": "Mang phong cách thiết kế trẻ trung và sang trọng được rất nhiều bạn trẻ ưa thích",
+        "btn": "Mua ngay"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

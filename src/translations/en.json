@@ -1,4 +1,16 @@
 {
+    "homeheader": {
+        "homeindex": "Home",
+        "product": "Products",
+        "brand": "Brands",
+        "new": "News",
+        "contact": "Contact"
+    },
+    "banner": {
+        "title": "Fashion shoes",
+        "description": "With a youthful and luxurious design style that is loved by many young people",
+        "btn": "Buy now"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
