@@ -52,7 +52,6 @@ class Login extends Component {
                     })
                 }
             }
-            // console.log('>>>DNH: ', error.response.data);
         }
 
     }
@@ -95,7 +94,7 @@ class Login extends Component {
                             </div>
 
                         </div>
-                        <div className='col-12'>
+                        <div className='col-12 text-danger'>
                             {this.state.errMessage}
                         </div>
                         <div>

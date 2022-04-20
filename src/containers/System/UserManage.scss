@@ -53,3 +53,42 @@
     }
 
 }
+
+.modal-container-user {
+    .modal-title {
+        button {
+            background: transparent !important;
+            border    : none;
+            color     : #f2f2f2;
+            font-size : 20px;
+        }
+    }
+
+    .modal-user-body {
+        display: flex;
+        gap    : 15px;
+
+        .input-container {
+            display       : flex;
+            flex-direction: column;
+            width         : 50%;
+
+            // &.max-width-input {
+            //     width: 70%;
+            // }
+
+            // &.min-width-input {
+            //     width: 30%;
+            // }
+
+            input {
+                border-radius: 3px;
+                border       : 1px solid grey;
+                outline      : none;
+                padding      : 0 10px;
+                height       : 30px;
+            }
+        }
+    }
+
+}
