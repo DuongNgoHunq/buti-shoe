@@ -7,8 +7,12 @@
         "contact": "Contact"
     },
     "banner": {
-        "title": "Fashion shoes",
-        "description": "With a youthful and luxurious design style that is loved by many young people",
+        "title1": "Fashion shoes",
+        "title2": "New style",
+        "title3": "Sport shoes",
+        "description1": "With a youthful and luxurious design style that is loved by many young people",
+        "description2": "Youthful elegance with new style shoes",
+        "description3": "30% off early summer 2022",
         "btn": "Buy now"
     },
     "common": {

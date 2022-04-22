@@ -7,8 +7,12 @@
         "contact": "Liên hệ"
     },
     "banner": {
-        "title": "Giày Thời Trang",
-        "description": "Mang phong cách thiết kế trẻ trung và sang trọng được rất nhiều bạn trẻ ưa thích",
+        "title1": "Giày Thời Trang",
+        "title2": "Mang phong cách mới",
+        "title3": "Giày thể thao",
+        "description1": "Mang phong cách thiết kế trẻ trung và sang trọng được rất nhiều bạn trẻ ưa thích",
+        "description2": "Sang trọng trẻ trung với những đôi giày mang phong cách mới",
+        "description3": "Giảm giá 30% đầu hè 2022",
         "btn": "Mua ngay"
     },
     "common": {

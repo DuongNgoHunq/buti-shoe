@@ -19,7 +19,7 @@
                 font-size: 30px;
 
                 .logo {
-                    color: red;
+                    color: #e42e50;
                 }
             }
 
@@ -61,6 +61,8 @@
 
             .language-vi {
                 opacity: 0.2;
+                cursor : pointer;
+
 
                 &.active {
                     color  : rgb(206, 61, 8);
@@ -72,8 +74,14 @@
                 }
             }
 
+            i {
+                color : rgb(107, 103, 103);
+                cursor: pointer;
+            }
+
             .language-en {
                 opacity: 0.2;
+                cursor : pointer;
 
                 &.active {
                     color  : blue;
@@ -88,8 +96,8 @@
     }
 }
 
-.home-header-slide {
-    background     : url('../../assets/slider_v2_background_4.webp') center center no-repeat;
+.home-header-slide1 {
+    background     : url('../../assets/images/slider/slider_v2_background_4.webp') center center no-repeat;
     height         : 485px;
     background-size: cover;
     align-items    : center;
@@ -105,14 +113,16 @@
     }
 
     .description {
-        font-size : 20px;
-        text-align: center;
+        font-size  : 20px;
+        text-align : center;
+        padding-top: 20px;
     }
 
     .btn-buy-now {
-        width     : 200px;
-        text-align: center;
-        margin    : 0 auto;
+        width      : 200px;
+        text-align : center;
+        margin     : 0 auto;
+        padding-top: 40px;
 
         button {
             background: transparent;
@@ -125,5 +135,135 @@
                 background-color: white;
             }
         }
+    }
+}
+
+.home-header-slide2 {
+    background     : url('../../assets/images/slider/slider_v2_background_2.png') center center no-repeat;
+    height         : 485px;
+    background-size: cover;
+    align-items    : center;
+    padding        : 15px 0;
+
+    .title {
+        text-align   : center;
+        color        : rgb(228, 46, 80) !important;
+        text-shadow  : 1px 1px 1px #333;
+        margin-bottom: 5px;
+        margin-top   : 30px;
+        font-size    : 30px;
+    }
+
+    .description {
+        font-size  : 20px;
+        text-align : center;
+        padding-top: 20px;
+    }
+
+    .btn-buy-now {
+        width      : 200px;
+        text-align : center;
+        margin     : 0 auto;
+        padding-top: 40px;
+
+        button {
+            background: transparent;
+            width     : 150px;
+            font-size : 20px;
+            border    : 1px solid black;
+            outline   : none;
+
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+}
+
+.home-header-slide3 {
+    background     : url('../../assets/images/slider/slider_v2_background_1.webp') center center no-repeat;
+    height         : 485px;
+    background-size: cover;
+    align-items    : center;
+    padding        : 15px 0;
+
+    .title {
+        text-align   : center;
+        color        : rgb(228, 46, 80) !important;
+        text-shadow  : 1px 1px 1px #333;
+        margin-bottom: 5px;
+        margin-top   : 30px;
+        font-size    : 30px;
+    }
+
+    .description {
+        font-size  : 20px;
+        text-align : center;
+        padding-top: 20px;
+    }
+
+    .btn-buy-now {
+        width      : 200px;
+        text-align : center;
+        margin     : 0 auto;
+        padding-top: 40px;
+
+        button {
+            background: transparent;
+            width     : 150px;
+            font-size : 20px;
+            border    : 1px solid black;
+            outline   : none;
+
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+}
+
+
+.header-body {
+    height: 400px;
+    width : 100%;
+
+    .slick-prev {
+        border    : 1px solid #d7d7d7 !important;
+        left      : 30px !important;
+        top       : 233px !important;
+        z-index   : 1000 !important;
+        height    : 48px;
+        width     : 48px;
+        background: #fff;
+
+        &:hover {
+            background-color: #eceaea;
+        }
+    }
+
+    .slick-next {
+        border    : 1px solid #d7d7d7 !important;
+        right     : 30px !important;
+        top       : 233px !important;
+        z-index   : 1000 !important;
+        height    : 48px;
+        width     : 48px;
+        background: #fff;
+
+        &:hover {
+            background-color: #eceaea;
+        }
+    }
+
+    h3 {
+        display: block;
+        border : 1px solid blue;
+        height : 300px;
+        width  : 100%;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        color: red;
     }
 }

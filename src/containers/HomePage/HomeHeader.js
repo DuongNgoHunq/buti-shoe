@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions/appActions';
-
+import Slider from "react-slick";
 import './HomeHeader.scss';
 
 class HomeHeader extends Component {
@@ -14,7 +14,13 @@ class HomeHeader extends Component {
     }
     render() {
         let language = this.props.language;
-
+        const settings = {
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+        };
         return (
             <>
                 <div className='home-header-container'>
@@ -46,7 +52,6 @@ class HomeHeader extends Component {
                         </div>
                         <div className='right-content'>
 
-
                             <i className="fas fa-search "></i>
                             <i className="fas fa-user"></i>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span
@@ -59,19 +64,46 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='home-header-slide'>
-                    <div className='title'><FormattedMessage id="banner.title" /></div>
-                    <div className='description'>
-                        <i>
-                            <FormattedMessage id="banner.description" />
-                        </i>
-                    </div>
-                    <div className='btn-buy-now'>
-                        <button><FormattedMessage id="banner.btn" /></button>
-                    </div>
+                <div className='header-body'>
+                    <Slider {...settings}>
+                        <div className='home-header-slide1'>
+                            <div className='title'><FormattedMessage id="banner.title1" /></div>
+                            <div className='description'>
+                                <i>
+                                    <FormattedMessage id="banner.description1" />
+                                </i>
+                            </div>
+                            <div className='btn-buy-now'>
+                                <button><FormattedMessage id="banner.btn" /></button>
+                            </div>
+                        </div>
+                        <div className='home-header-slide2'>
+                            <div className='title'><FormattedMessage id="banner.title3" /></div>
+                            <div className='description'>
+                                <i>
+                                    <FormattedMessage id="banner.description3" />
+                                </i>
+                            </div>
+                            <div className='btn-buy-now'>
+                                <button><FormattedMessage id="banner.btn" /></button>
+                            </div>
+                        </div>
+                        <div className='home-header-slide3'>
+                            <div className='title'><FormattedMessage id="banner.title1" /></div>
+                            <div className='description'>
+                                <i>
+                                    <FormattedMessage id="banner.description1" />
+                                </i>
+                            </div>
+                            <div className='btn-buy-now'>
+                                <button><FormattedMessage id="banner.btn" /></button>
+                            </div>
+                        </div>
+
+                    </Slider>
                 </div>
             </>
-        )
+        );
     }
 
 }
