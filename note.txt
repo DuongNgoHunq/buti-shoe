@@ -1,0 +1,6 @@
+- Admin quan ly:
++ user
++ product
++ brand
++ news 
+ 
