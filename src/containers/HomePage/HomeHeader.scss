@@ -1,7 +1,11 @@
 .home-header-container {
-    height : 60px;
-    width  : 100%;
-    padding: 0 40px;
+    height    : 60px;
+    width     : 100%;
+    padding   : 0 40px;
+    position  : sticky;
+    top       : 0;
+    background: white;
+    z-index   : 1000 !important;
 
     .home-header-content {
         width  : 100%;
@@ -231,7 +235,7 @@
         border    : 1px solid #d7d7d7 !important;
         left      : 30px !important;
         top       : 233px !important;
-        z-index   : 1000 !important;
+        z-index   : 10 !important;
         height    : 48px;
         width     : 48px;
         background: #fff;
@@ -245,7 +249,7 @@
         border    : 1px solid #d7d7d7 !important;
         right     : 30px !important;
         top       : 233px !important;
-        z-index   : 1000 !important;
+        z-index   : 10 !important;
         height    : 48px;
         width     : 48px;
         background: #fff;
