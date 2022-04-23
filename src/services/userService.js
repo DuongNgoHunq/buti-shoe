@@ -1,6 +1,7 @@
 import db from "../models/index";
 import bcrypt from 'bcryptjs';
 import { resolve } from 'path';
+import { assert } from "console";
 
 
 const salt = bcrypt.genSaltSync(10);
@@ -113,25 +114,28 @@ let createNewUser = (data) => {
             if (check === true) {
                 resolve({
                     errCode: 1,
-                    message: 'your email is already in used, Please try another email!'
+                    errMessage: 'your email is already in used, Please try another email!'
                 })
             }
-            let hashPasswordFromBcrypt = await hashUserPassword(data.password);
-            console.log(data);
-            await db.User.create({
-                email: data.email,
-                password: hashPasswordFromBcrypt,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                phoneNumber: data.phoneNumber,
-                address: data.address,
-                gender: data.gender === "1" ? true : false,
-                roleId: data.role,
-            })
-            resolve({
-                errCode: 0,
-                errMessage: 'Ok'
-            })
+            else {
+                let hashPasswordFromBcrypt = await hashUserPassword(data.password);
+                console.log(data);
+                await db.User.create({
+                    email: data.email,
+                    password: hashPasswordFromBcrypt,
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    phoneNumber: data.phoneNumber,
+                    address: data.address,
+                    gender: data.gender === "1" ? true : false,
+                    roleId: data.role,
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: 'Ok'
+                })
+            }
+
         } catch (e) {
             reject(e);
         }
@@ -154,7 +158,7 @@ let deleteUser = (userId) => {
         })
         resolve({
             errCode: 0,
-            message: 'The user was delete!'
+            errMessage: 'The user was delete!'
         })
     })
 }
@@ -200,7 +204,32 @@ let updateUserData = (data) => {
         }
     })
 }
+let getAllCodeService = (typeInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!typeInput) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameters!'
+                })
+            }
+            else {
+                let res = {};
+                let allcode = await db.Allcode.findAll({
+                    where: { type: typeInput }
+                });
+                res.errCode = 0;
+                res.data = allcode;
+                resolve(res)
+            }
+
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
 module.exports = {
-    handleUserLogin, getAllUser, createNewUser, deleteUser, updateUserData
+    handleUserLogin, getAllUser, createNewUser,
+    deleteUser, updateUserData, getAllCodeService
 
 }
