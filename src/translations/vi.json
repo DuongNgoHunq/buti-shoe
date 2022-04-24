@@ -33,5 +33,18 @@
             "manager-news": "Quản lý tin tức",
             "news": "Tin tức"
         }
+    },
+    "manage-user": {
+        "title": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "firstName": "Họ",
+        "lastName": "Tên",
+        "phoneNumber": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "roleId": "Vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu người dùng"
     }
 }

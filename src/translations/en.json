@@ -34,5 +34,18 @@
             "manager-news": "Manager news",
             "news": "News"
         }
+    },
+    "manage-user": {
+        "title": "Add a new user",
+        "email": "Email",
+        "password": "Password",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "phoneNumber": "Phone number",
+        "address": "Address",
+        "gender": "Gender",
+        "roleId": "Role",
+        "image": "Avatar",
+        "save": "Save user"
     }
 }
