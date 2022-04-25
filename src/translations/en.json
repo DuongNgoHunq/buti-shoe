@@ -44,6 +44,7 @@
         "phoneNumber": "Phone number",
         "address": "Address",
         "gender": "Gender",
+        "position": "Position",
         "roleId": "Role",
         "image": "Avatar",
         "save": "Save user"

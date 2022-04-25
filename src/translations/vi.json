@@ -44,6 +44,7 @@
         "address": "Địa chỉ",
         "gender": "Giới tính",
         "roleId": "Vai trò",
+        "position": "Vị trí",
         "image": "Ảnh đại diện",
         "save": "Lưu người dùng"
     }

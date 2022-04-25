@@ -108,6 +108,8 @@ export const createNewUser = (data) => {
             }
         } catch (e) {
             dispatch(createUserFailed());
+            toast.error("Create users error !")
+            
             console.log('createUserFailed error', e);
         }
     }

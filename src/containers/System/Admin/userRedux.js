@@ -47,12 +47,7 @@ class UserRedux extends Component {
                 gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : ''
             })
         }
-        // gan' values position
-        if (prevProps.positionRedux !== this.props.positionRedux) {
-            this.setState({
-                positionArr: this.props.positionRedux
-            })
-        }
+      
         // gan' values role
         if (prevProps.roleRedux !== this.props.roleRedux) {
             let arrRoles = this.props.roleRedux;
@@ -63,6 +58,10 @@ class UserRedux extends Component {
         }
         // reset state khi 
         if (prevProps.listUsers !== this.props.listUsers) {
+            let arrRoles = this.props.roleRedux;
+            let arrGenders = this.props.genderRedux;
+            // let arrPositionRedux = this.props.positionRedux;
+            
             this.setState({
                 email: '',
                 password: '',
@@ -70,8 +69,9 @@ class UserRedux extends Component {
                 lastName: '',
                 phoneNumber: '',
                 address: '',
-                gender: '',
-                role: '',
+                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : '',
+                // position: arrPositionRedux && arrPositionRedux.length > 0 ? arrPositionRedux[0].key : '',
+                role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : '',
                 image: '',
             })
         }
@@ -112,6 +112,7 @@ class UserRedux extends Component {
     }
 
     handleSaveUser = () => {
+        console.log('Check before submit check state: ', this.state);
         let isValid = this.checkValidateInput()
         if (isValid === false) return;
         // fire redux action
@@ -138,10 +139,26 @@ class UserRedux extends Component {
         }, () => {
         })
     }
+
+    handleEditUserFromParent = (user) =>{
+        console.log('Check handle edit user from parent: ', user);
+        this.setState({
+            email: user.email,
+            password: 'Hardcode',
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phoneNumber: user.phoneNumber,
+            address: user.address,
+            gender: user.gender,
+            role: user.roleId,
+            image: ''
+        })
+    }
     render() {
 
         let genders = this.state.genderArr;
         let roles = this.state.roleArr;
+        let positions = this.state.positionArr;
         let language = this.props.language;
         let isLoadingGender = this.props.isLoadingGender;
 
@@ -211,7 +228,8 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id="manage-user.gender" /></label>
                                 <select className='form-control'
                                     onChange={(event) => this.onChangeInput(event, 'gender')}
-                                >
+                                    value={gender}
+                               >
                                     {genders && genders.length > 0 &&
                                         genders.map((item, index) => {
                                             return (
@@ -229,6 +247,7 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id="manage-user.roleId" /></label>
                                 <select className='form-control'
                                     onChange={(event) => this.onChangeInput(event, 'role')}
+                                    value={role}
 
                                 >
                                     {roles && roles.length > 0 &&
@@ -242,6 +261,7 @@ class UserRedux extends Component {
                                     }
                                 </select>
                             </div>
+                           
                             <div className='col-3'>
                                 <label><FormattedMessage id="manage-user.image" /></label>
                                 <div className='preview-img-container'>
@@ -270,7 +290,9 @@ class UserRedux extends Component {
                             </div>
                             <div className='col-12 mb-5'>
 
-                                <TableManageUser />
+                                <TableManageUser 
+                                    handleEditUserFromParent = {this.handleEditUserFromParent}
+                                />
                             </div>
 
                         </div>
