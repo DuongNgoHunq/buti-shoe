@@ -6,6 +6,7 @@ import * as actions from "../../../store/actions";
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import './userRedux.scss';
+import TableManageUser from './TableManageUser';
 class UserRedux extends Component {
 
     constructor(props) {
@@ -60,11 +61,26 @@ class UserRedux extends Component {
                 role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ''
             })
         }
+        // reset state khi 
+        if (prevProps.listUsers !== this.props.listUsers) {
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                gender: '',
+                role: '',
+                image: '',
+            })
+        }
     }
 
     handleOnchangeImage = (event) => {
         let data = event.target.files;
         let file = data[0];
+        console.log("Check file: ", file);
         if (file) {
             let objectUrl = URL.createObjectURL(file);
             this.setState({
@@ -109,6 +125,7 @@ class UserRedux extends Component {
             gender: this.state.gender,
             roleId: this.state.role,
         })
+
     }
 
     onChangeInput = (event, id) => {
@@ -245,11 +262,15 @@ class UserRedux extends Component {
 
                             </div>
                             <div className='col-12 mt-3'>
-                                <button className='btn btn-primary mt-3'
+                                <button className='btn btn-primary my-3'
                                     onClick={() => this.handleSaveUser()}
                                 >
                                     <FormattedMessage id="manage-user.save" />
                                 </button>
+                            </div>
+                            <div className='col-12 mb-5'>
+
+                                <TableManageUser />
                             </div>
 
                         </div>
@@ -275,6 +296,8 @@ const mapStateToProps = state => {
         positionRedux: state.admin.positions,
         roleRedux: state.admin.roles,
 
+        listUsers: state.admin.users,
+
         isLoadingGender: state.admin.isLoadingGender,
     };
 };
@@ -288,6 +311,8 @@ const mapDispatchToProps = dispatch => {
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
 
         createNewUser: (data) => dispatch(actions.createNewUser(data)),
+
+        fetchUserRedux: () => dispatch(actions.fetAllUsersStart())
 
         // processLogout: () => dispatch(actions.processLogout()),
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language))
