@@ -25,9 +25,14 @@ class TableManageProduct extends Component {
             })
         }
     }
+    handleDeleteProduct = (product) => {
+        this.props.deleteAUserRedux(product.id)
+    }
+
+    handleEditProduct = (product) => {
+        this.props.handleEditProductFromParent(product)
+    }
     render() {
-        console.log('Check all product: ', this.props.listProducts);
-        console.log('Check state: ', this.state.productRedux);
         let arrProducts = this.state.productRedux;
         return (
 
@@ -54,11 +59,14 @@ class TableManageProduct extends Component {
                                     <td>
 
                                         <button className='btn-edit'
+                                            onClick={() => this.handleEditProduct(item)}
+
                                         >
                                             <i className="fas fa-pencil-alt"></i>
                                         </button>
 
                                         <button className='btn-delete'
+                                            onClick={() => this.handleDeleteProduct(item)}
                                         >
                                             <i className="fas fa-trash"></i>
                                         </button>
@@ -84,7 +92,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllProductRedux: () => dispatch(actions.fetchAllProduct()),
-        deleteAUserRedux: (id) => dispatch(actions.deleteAUser(id)),
+        deleteAUserRedux: (id) => dispatch(actions.deleteAProduct(id)),
     };
 };
 

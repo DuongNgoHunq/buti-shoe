@@ -25,10 +25,26 @@ class ProductManage extends Component {
             price: '',
             image: '',
 
+            action: '',
+            productId: '',
+
         }
     }
     async componentDidMount() {
 
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.listProducts !== this.props.listProducts) {
+            this.setState({
+                name: '',
+                brandId: '',
+                description: '',
+                quanlity: '',
+                price: '',
+                image: '',
+                action: CRUD_Actions.CREATE,
+            })
+        }
     }
     handleChangeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
@@ -56,15 +72,31 @@ class ProductManage extends Component {
     handleCreateProduct = () => {
         let isValid = this.checkValidateInput();
         if (isValid === false) return;
+        let { action } = this.state;
 
-        //fire redux actions
-        this.props.createNewProductRedux({
-            name: this.state.name,
-            brandId: this.state.brandId,
-            quanlity: this.state.quanlity,
-            description: this.state.description,
-            price: this.state.price,
-        })
+        if (action === CRUD_Actions.CREATE) {
+            //fire redux create product
+            this.props.createNewProductRedux({
+                name: this.state.name,
+                brandId: this.state.brandId,
+                quanlity: this.state.quanlity,
+                description: this.state.description,
+                price: this.state.price,
+            })
+        }
+        if (action === CRUD_Actions.EDIT) {
+            //fire redux edit product
+            this.props.editAProductRedux({
+                id: this.state.productId,
+                name: this.state.name,
+                brandId: this.state.brandId,
+                quanlity: this.state.quanlity,
+                description: this.state.description,
+                price: this.state.price,
+                // image: this.state.image
+            })
+        }
+
     }
 
     checkValidateInput = () => {
@@ -88,6 +120,21 @@ class ProductManage extends Component {
         })
 
     }
+
+    handleEditProductFromParent = (product) => {
+        console.log('Check handle edit from parent: ', product);
+        this.setState({
+            productId: product.id,
+            name: product.name,
+            brandId: product.brandId,
+            description: product.description,
+            quanlity: product.quanlity,
+            price: product.price,
+            image: '',
+            action: CRUD_Actions.EDIT,
+        })
+    }
+
     render() {
         const { language } = this.props;
         let { name, brandId,
@@ -110,7 +157,7 @@ class ProductManage extends Component {
                                 <input className='form-control'
                                     value={name}
                                     onChange={(event) => { this.handleOnchangeInput(event, 'name') }}
-
+                                    disabled={this.state.action === CRUD_Actions.EDIT ? true : false}
                                 />
                             </div>
                             <div className='col-6 my-2'>
@@ -121,6 +168,7 @@ class ProductManage extends Component {
                                 <input className='form-control'
                                     value={brandId}
                                     onChange={(event) => { this.handleOnchangeInput(event, 'brandId') }}
+                                    disabled={this.state.action === CRUD_Actions.EDIT ? true : false}
 
                                 />
                             </div>
@@ -180,15 +228,24 @@ class ProductManage extends Component {
 
                             </div>
                         </div>
-                        <button className='btn btn-primary my-3'
-                            onClick={() => this.handleCreateProduct()}
-                        >
-                            <FormattedMessage id="manage-product.save" />
+                        <div className='my-3'>
+                            <button className={this.state.action === CRUD_Actions.EDIT ? 'btn btn-warning' : 'btn btn-primary'}
+                                onClick={() => this.handleCreateProduct()}
+                            >
+                                {this.state.action === CRUD_Actions.EDIT ?
+                                    <FormattedMessage id="manage-product.edit" />
+                                    :
+                                    <FormattedMessage id="manage-product.save" />
+                                }
+                            </button>
+                        </div>
 
-                        </button>
                     </div>
 
-                    <TableManageProduct />
+                    <TableManageProduct
+                        handleEditProductFromParent={this.handleEditProductFromParent}
+                        action={this.state.action}
+                    />
                     {this.state.isOpen === true &&
                         <Lightbox
                             mainSrc={this.state.previewImgURL}
@@ -205,6 +262,8 @@ class ProductManage extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
+        listProducts: state.admin.products
+
 
     };
 };
@@ -212,8 +271,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
-        fetchProductRedux: () => dispatch(actions.fetchAllProduct()),
+        fetchAllProductRedux: () => dispatch(actions.fetchAllProduct()),
         createNewProductRedux: (data) => dispatch(actions.createNewProduct(data)),
+        editAProductRedux: (data) => dispatch(actions.editAProduct(data)),
     };
 };
 

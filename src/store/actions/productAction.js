@@ -65,3 +65,61 @@ export const createProductSuccess = () => ({
 export const createProductFailed = () => ({
     type: actionTypes.CREATE_PRODUCT_FAILED
 })
+
+// Delete product
+export const deleteAProduct = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await deleteProductService(data);
+            if (res && res.errCode === 0) {
+                toast.success("Delete a product success !")
+                dispatch(deleteProductSuccess());
+                dispatch(fetchAllProduct())
+            } else {
+                toast.error("Delete product error !")
+
+                dispatch(deleteProductFailed());
+            }
+        } catch (e) {
+            dispatch(deleteProductFailed());
+            toast.error("Delete product error !")
+
+            console.log('deleteProductFailed error', e);
+        }
+    }
+}
+export const deleteProductSuccess = () => ({
+    type: actionTypes.DELETE_PRODDUCT_SUCCESS
+})
+export const deleteProductFailed = () => ({
+    type: actionTypes.DELETE_PRODDUCT_FAILED
+})
+
+// Edit product
+export const editAProduct = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await editProductService(data);
+            if (res && res.errCode === 0) {
+                toast.success("Update a product success !")
+                dispatch(editProductSuccess());
+                dispatch(fetchAllProduct())
+            } else {
+                toast.error("Update product error !")
+
+                dispatch(editProductFailed());
+            }
+        } catch (e) {
+            dispatch(editProductFailed());
+            toast.error("Update product error !")
+
+            console.log('updateProductFailed error', e);
+        }
+    }
+}
+export const editProductSuccess = () => ({
+    type: actionTypes.EDIT_PRODUCT_SUCCESS
+})
+export const editProductFailed = () => ({
+    type: actionTypes.EDIT_PRODUCT_FAILED
+})
