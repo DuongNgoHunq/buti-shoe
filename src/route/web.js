@@ -1,6 +1,7 @@
 import express from "express";
 import homeController from '../controllers/homeController';
 import userController from '../controllers/userController';
+import productController from '../controllers/productController';
 
 let router = express.Router();
 
@@ -14,13 +15,20 @@ let initWebRouter = (app) => {
     router.post('/put-crud', homeController.putCRUD)
     router.get('/delete-crud', homeController.deleteCRUD)
 
-
+    // api user 
     router.post('/api/login', userController.handleLogin)
     router.get('/api/get-all-user', userController.handleGetAllUser)
     router.post('/api/create-new-user', userController.handleCreateNewUser)
     router.put('/api/edit-user', userController.handleEditUser)
     router.delete('/api/delete-user', userController.handleDeleteUser)
-    router.get('/allcode', userController.getAllCode);
+    router.get('/api/allcode', userController.getAllCode);
+
+    //api product
+    router.get('/api/get-all-products', productController.handleGetAllProduct)
+    router.post('/api/create-new-product', productController.handleCreateNewProduct)
+
+    router.put('/api/edit-product', productController.handleEditProduct)
+    router.delete('/api/delete-product', productController.handleDeleteProduct)
     router.get('/dnh', (req, res) => {
         return res.render("crud.ejs")
     });

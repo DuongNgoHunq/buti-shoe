@@ -1,4 +1,7 @@
 'use strict';
+
+const user = require("../models/user");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Users', {
@@ -30,7 +33,7 @@ module.exports = {
       },
 
       gender: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       image: {
         type: Sequelize.STRING
@@ -55,3 +58,4 @@ module.exports = {
     await queryInterface.dropTable('Users');
   }
 };
+
