@@ -48,5 +48,16 @@
         "image": "Ảnh đại diện",
         "save": "Lưu người dùng",
         "edit": "Lưu thay đổi"
+    },
+    "manage-product": {
+        "title": "Thêm mới sản phẩm",
+        "name": "Tên sản phẩm",
+        "brand-id": "Mã nhà sản xuất",
+        "description": "Mô tả",
+        "quanlity": "Số lượng",
+        "price": "Giá",
+        "image": "Ảnh đại diện",
+        "save": "Lưu sản phẩm",
+        "edit": "Lưu thay đổi"
     }
 }

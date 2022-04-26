@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 //Fetch gender
 export const fetchGenderStart = () => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             dispatch({ type: actionTypes.FETCH_GENDER_START })
 
@@ -40,7 +40,7 @@ export const fetchGenderFailed = () => ({
 // fetch position 
 
 export const fetchPositionStart = () => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             dispatch({ type: actionTypes.FETCH_GENDER_START })
 
@@ -62,11 +62,11 @@ export const fetchPositionSuccess = (positionData) => ({
 })
 
 export const fetchPositionFailed = () => ({
-        type: actionTypes.FETCH_POSITION_FAILED
-    })
-    //fetch roles
+    type: actionTypes.FETCH_POSITION_FAILED
+})
+//fetch roles
 export const fetchRoleStart = () => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             let res = await getAllCodeService("ROLE");
             if (res && res.errCode === 0) {
@@ -86,12 +86,12 @@ export const fetchRoleSuccess = (roleData) => ({
 })
 
 
-            export const fetchRoleFailed = () => ({
+export const fetchRoleFailed = () => ({
     type: actionTypes.FETCH_ROLE_FAILED
 })
 
 export const createNewUser = (data) => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             let res = await createNewUserService(data);
             if (res && res.errCode === 0) {
@@ -121,13 +121,13 @@ export const createUserFailed = () => ({
 //Edit a user
 
 export const editAUserStart = (data) => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             let res = await editUserService(data);
             if (res && res.errCode === 0) {
                 toast.success("Edit user success !")
                 dispatch(editUserSuccess());
-              
+
                 // return;
             } else {
                 toast.error("Edit user error !")
@@ -152,7 +152,7 @@ export const editUserFailed = () => ({
 
 //fetch all users
 export const fetAllUsersStart = () => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             let res = await getAllUser("ALL");
             if (res && res.errCode === 0) {
@@ -180,7 +180,7 @@ export const fetAllUsersFailed = () => ({
 })
 
 export const deleteAUser = (userId) => {
-    return async(dispatch, getState) => {
+    return async (dispatch, getState) => {
         try {
             let res = await deleteUserService(userId);
             console.log("Check create user redux: ", res);

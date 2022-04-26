@@ -7,6 +7,7 @@ const initialState = {
     roles: [],
     positions: [],
     users: [],
+    products: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -66,6 +67,18 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+        case actionTypes.FETCH_ALL_PRODUCT_SUCCESS:
+            state.products = action.products;
+            return {
+                ...state
+            }
+
+        case actionTypes.FETCH_ALL_PRODUCT_FAILED:
+            state.products = [];
+            return {
+                ...state
+            }
+
 
 
         default:

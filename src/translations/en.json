@@ -49,5 +49,16 @@
         "image": "Avatar",
         "save": "Save user",
         "edit": "Edit user"
+    },
+    "manage-product": {
+        "title": "Add new product",
+        "name": "Name product",
+        "brand-id": "Brand ID",
+        "description": "Description",
+        "quanlity": "Quanlity",
+        "price": "Price",
+        "image": "Image",
+        "save": "Save product",
+        "edit": "Save changes"
     }
 }

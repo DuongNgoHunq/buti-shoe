@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import UserManage from '../containers/System/UserManage';
-import ProductManage from '../containers/System/Admin/userRedux';
+import UserRedux from '../containers/System/Admin/userRedux';
+import ProductManage from '../containers/System/Admin/ProductRedux';
 import Header from '../containers/Header/Header';
+
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;
@@ -14,7 +16,11 @@ class System extends Component {
                     <div className="system-list">
                         <Switch>
                             <Route path="/system/user-manage" component={UserManage} />
-                            <Route path="/system/user-redux" component={ProductManage} />
+                            
+                            <Route path="/system/user-redux" component={UserRedux} />
+
+                            <Route path='/system/product-manager' component={ProductManage} />
+
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>
