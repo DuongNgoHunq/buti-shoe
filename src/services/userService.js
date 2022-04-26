@@ -9,6 +9,7 @@ const getAllUser = (inputId) => {
 
 const createNewUserService = (data) => {
     console.log('Check data from service: ', data);
+
     return axios.post('/api/create-new-user', data)
 }
 const deleteUserService = (userId) => {
@@ -20,6 +21,8 @@ const deleteUserService = (userId) => {
 }
 
 const editUserService = (inputData) => {
+    console.log('Check data from service: ', inputData);
+
     return axios.put('/api/edit-user', inputData)
 }
 
