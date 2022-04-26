@@ -1,7 +1,7 @@
 import db from "../models/index";
 
 let getAllProduct = (productId) => {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             let products = '';
             if (productId === 'ALL') {
@@ -22,7 +22,7 @@ let getAllProduct = (productId) => {
     })
 }
 let createNewProduct = (data) => {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             if (!data.name || !data.description || !data.price || !data.brandId) {
                 resolve({
@@ -34,6 +34,7 @@ let createNewProduct = (data) => {
                     name: data.name,
                     brandId: data.brandId,
                     description: data.description,
+                    quanlity: data.quanlity,
                     price: data.price,
                 })
                 resolve({
@@ -48,7 +49,7 @@ let createNewProduct = (data) => {
     })
 }
 let deleteProduct = (id) => {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         let product = await db.Product.findOne({
             where: { id: id }
         })
@@ -69,9 +70,9 @@ let deleteProduct = (id) => {
 }
 
 let updateProductData = (data) => {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
-            if (!data.id) {
+            if (!data.id || !data.name || !data.brandId || !data.description || !data.quanlity || !data.price) {
                 resolve({
                     errCode: 2,
                     errMessage: 'Missing required parameter!'
@@ -85,6 +86,7 @@ let updateProductData = (data) => {
                 product.name = data.name;
                 product.brandId = data.brandId;
                 product.description = data.description;
+                product.quanlity = data.quanlity;
                 product.price = data.price;
 
                 await product.save();
