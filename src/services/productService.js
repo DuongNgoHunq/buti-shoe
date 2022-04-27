@@ -36,6 +36,7 @@ let createNewProduct = (data) => {
                     description: data.description,
                     quanlity: data.quanlity,
                     price: data.price,
+                    image: data.image,
                 })
                 resolve({
                     errCode: 0,
@@ -88,6 +89,9 @@ let updateProductData = (data) => {
                 product.description = data.description;
                 product.quanlity = data.quanlity;
                 product.price = data.price;
+                if (data.image) {
+                    product.image = data.image;
+                }
 
                 await product.save();
                 resolve({

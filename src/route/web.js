@@ -2,6 +2,7 @@ import express from "express";
 import homeController from '../controllers/homeController';
 import userController from '../controllers/userController';
 import productController from '../controllers/productController';
+import sellerController from "../controllers/sellerController"
 
 let router = express.Router();
 
@@ -26,9 +27,12 @@ let initWebRouter = (app) => {
     //api product
     router.get('/api/get-all-products', productController.handleGetAllProduct)
     router.post('/api/create-new-product', productController.handleCreateNewProduct)
-
     router.put('/api/edit-product', productController.handleEditProduct)
     router.delete('/api/delete-product', productController.handleDeleteProduct)
+
+    //api seller ]
+    router.get('/api/get-top-seller', sellerController.getTopSellerHome)
+
     router.get('/dnh', (req, res) => {
         return res.render("crud.ejs")
     });
