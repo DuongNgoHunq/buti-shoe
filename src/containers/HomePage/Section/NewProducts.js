@@ -9,7 +9,6 @@ class NewProducts extends Component {
 
     render() {
         let settings = this.props.settings;
-        console.log('check settings: ', settings);
         return (
             <div className='section-share'>
                 <div className='section-container'>
@@ -82,13 +81,10 @@ class NewProducts extends Component {
                                     <div className='price-detail-product'><span className='old-price'>560,000đ</span>420,000đ</div>
                                 </div>
                             </div>
-
                         </Slider>
                     </div>
-
                 </div>
             </div>
-
         )
     }
 

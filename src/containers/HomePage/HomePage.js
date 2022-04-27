@@ -7,6 +7,7 @@ import './HomPage.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import OutstandBrand from './Section/OutstandBrand';
+import OutStandSeller from './Section/OutstandSeller';
 import News from './Section/News';
 import HomeFooter from './Section/HomeFooter';
 
@@ -29,6 +30,8 @@ class HomePage extends Component {
                 <NewProducts settings={settings} />
                 <OutstandBrand settings={settings} />
                 <OutstandProduct settings={settings} />
+                <OutStandSeller settings={settings} />
+
                 <News settings={settings} />
                 <HomeFooter />
             </div>

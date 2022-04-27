@@ -4,7 +4,8 @@ import {
     createNewUserService,
     getAllUser,
     deleteUserService,
-    editUserService
+    editUserService,
+    getTopSellerHomeService
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -183,6 +184,7 @@ export const deleteAUser = (userId) => {
     return async (dispatch, getState) => {
         try {
             let res = await deleteUserService(userId);
+
             console.log("Check create user redux: ", res);
             if (res && res.errCode === 0) {
                 toast.success("Delete user success !")
@@ -203,4 +205,36 @@ export const deleteUserSuccess = () => ({
 })
 export const deleteUserFailed = () => ({
     type: actionTypes.DELETE_USER_FAILED
+})
+
+// fetch top seller
+
+export const fetchTopSellerStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            // let res = await getAllUser("ALL");
+            let res = await getTopSellerHomeService(3);
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_TOP_SELLER_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                toast.error("Fetch outstanding seller error !")
+
+                dispatch({
+                    type: actionTypes.FETCH_TOP_SELLER_FAILED
+                });
+            }
+        } catch (e) {
+            toast.error("Fetch outstanding seller error !");
+            console.log('Fetch outstanding seller error', e);
+            dispatch({
+                type: actionTypes.FETCH_TOP_SELLER_FAILED
+            });
+        }
+    }
+}
+
+export const fetchTopSellerFailed = () => ({
 })

@@ -8,6 +8,7 @@ const initialState = {
     positions: [],
     users: [],
     products: [],
+    topSellers: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -75,6 +76,17 @@ const adminReducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_ALL_PRODUCT_FAILED:
             state.products = [];
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_TOP_SELLER_SUCCESS:
+            state.topSellers = action.data;
+            return {
+                ...state
+            }
+
+        case actionTypes.FETCH_TOP_SELLER_FAILED:
+            state.topSellers = [];
             return {
                 ...state
             }
