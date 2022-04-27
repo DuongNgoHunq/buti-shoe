@@ -43,6 +43,7 @@ class ProductManage extends Component {
                 price: '',
                 image: '',
                 action: CRUD_Actions.CREATE,
+                previewImgURL: '',
             })
         }
     }
@@ -51,14 +52,18 @@ class ProductManage extends Component {
 
     }
 
-    handleOnchangeImage = (event) => {
+    handleOnchangeImage = async (event) => {
         let data = event.target.files;
         let file = data[0];
         if (file) {
+            let base64 = await CommonUtils.getBase64(file)
+            console.log('Check image: ', base64);
+
             let objectUrl = URL.createObjectURL(file);
             this.setState({
                 previewImgURL: objectUrl,
-                image: file,
+                image: base64,
+
             })
         }
     }
@@ -82,6 +87,8 @@ class ProductManage extends Component {
                 quanlity: this.state.quanlity,
                 description: this.state.description,
                 price: this.state.price,
+                image: this.state.image,
+
             })
         }
         if (action === CRUD_Actions.EDIT) {
@@ -93,7 +100,7 @@ class ProductManage extends Component {
                 quanlity: this.state.quanlity,
                 description: this.state.description,
                 price: this.state.price,
-                // image: this.state.image
+                image: this.state.image
             })
         }
 
@@ -122,7 +129,10 @@ class ProductManage extends Component {
     }
 
     handleEditProductFromParent = (product) => {
-        console.log('Check handle edit from parent: ', product);
+        let imageBase64 = '';
+        if (product.image) {
+            imageBase64 = new Buffer(product.image, 'base64').toString('binary')
+        }
         this.setState({
             productId: product.id,
             name: product.name,
@@ -131,6 +141,8 @@ class ProductManage extends Component {
             quanlity: product.quanlity,
             price: product.price,
             image: '',
+            previewImgURL: imageBase64,
+
             action: CRUD_Actions.EDIT,
         })
     }
