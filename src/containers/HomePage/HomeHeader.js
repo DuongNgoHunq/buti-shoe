@@ -16,10 +16,11 @@ class HomeHeader extends Component {
         let language = this.props.language;
         const settings = {
             infinite: true,
-            speed: 500,
+            speed: 2000,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
+            autoplaySpeed: 2000
         };
         return (
             <>

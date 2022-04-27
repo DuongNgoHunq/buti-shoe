@@ -4,6 +4,7 @@ import {
     createNewProductService,
     deleteProductService,
     editProductService,
+    getNewProductHome
 } from '../../services/productService';
 import { toast } from 'react-toastify';
 
@@ -34,6 +35,34 @@ export const getProductSuccess = (data) => ({
 })
 export const getProductFailed = () => ({
     type: actionTypes.FETCH_ALL_PRODUCT_FAILED
+})
+
+export const fetchNewProduct = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getNewProductHome('')
+            if (res && res.errCode === 0) {
+                dispatch(getNewProductSuccess(res.data));
+            } else {
+                toast.error("Fetch new product error !")
+
+                dispatch(getNewProductFailed());
+            }
+        } catch (e) {
+            dispatch(getNewProductFailed());
+            toast.error("Fetch new product error !")
+
+            console.log('fetchNewProductStart error', e);
+        }
+    }
+}
+
+export const getNewProductSuccess = (data) => ({
+    type: actionTypes.FETCH_NEW_PRODUCT_SUCCESS,
+    data: data
+})
+export const getNewProductFailed = () => ({
+    type: actionTypes.FETCH_NEW_PRODUCT_FAILED
 })
 
 //create product

@@ -59,5 +59,9 @@
         "image": "Ảnh đại diện",
         "save": "Lưu sản phẩm",
         "edit": "Lưu thay đổi"
+    },
+    "homepage":{
+        "new-product" : "Sản phẩm mới",
+        "more-infor": "Xem thêm"
     }
 }

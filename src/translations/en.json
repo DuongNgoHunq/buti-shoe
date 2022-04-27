@@ -60,5 +60,9 @@
         "image": "Image",
         "save": "Save product",
         "edit": "Save changes"
+    },
+    "homepage":{
+        "new-product" : "New products",
+        "more-infor": "More infor"
     }
 }

@@ -41,7 +41,8 @@
                 background-size: cover;
 
                 &.section-new-product {
-                    background-image: url('../../assets/new-product/nike-1.jpg');
+                    border: 1px solid orangered;
+                    // background-image: url('../../assets/new-product/nike-1.jpg');
 
                 }
 
@@ -54,7 +55,7 @@
                 }
 
                 &.section-outstand-seller {
-                    background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
+                    // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
                 }
 
                 &.section-news {
@@ -123,6 +124,10 @@
 
     }
 
+}
+
+.slick-disabled {
+    display: none !important;
 }
 
 .slick-prev {

@@ -9,6 +9,7 @@ const initialState = {
     users: [],
     products: [],
     topSellers: [],
+    newProducts: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -87,6 +88,18 @@ const adminReducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_TOP_SELLER_FAILED:
             state.topSellers = [];
+            return {
+                ...state
+            }
+
+        case actionTypes.FETCH_NEW_PRODUCT_SUCCESS:
+            state.newProducts = action.data;
+            return {
+                ...state
+            }
+
+        case actionTypes.FETCH_NEW_PRODUCT_FAILED:
+            state.newProducts = [];
             return {
                 ...state
             }

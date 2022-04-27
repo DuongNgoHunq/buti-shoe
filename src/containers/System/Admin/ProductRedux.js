@@ -31,7 +31,7 @@ class ProductManage extends Component {
         }
     }
     async componentDidMount() {
-
+        this.props.fetchAllProductRedux()
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.listProducts !== this.props.listProducts) {

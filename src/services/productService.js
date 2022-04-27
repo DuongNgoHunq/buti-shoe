@@ -17,6 +17,9 @@ const deleteProductService = (productId) => {
         }
     });
 }
+const getNewProductHome = (limit) => {
+    return axios.get(`/api/get-new-products?limit=${limit}`)
+}
 
 const editProductService = (inputData) => {
     console.log('Check data from service: ', inputData);
@@ -29,5 +32,6 @@ export {
     createNewProductService,
     deleteProductService,
     editProductService,
+    getNewProductHome
 }
 

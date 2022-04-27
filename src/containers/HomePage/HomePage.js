@@ -17,11 +17,12 @@ class HomePage extends Component {
     render() {
         const settings = {
 
-            infinite: true,
+            infinite: false,
             slidesToShow: 4,
             slidesToScroll: 1,
             // autoplay: true,
-            speed: 2000,
+            speed: 500,
+            dots: false
             // autoplaySpeed: 2000,
         };
         return (

@@ -52,7 +52,7 @@ class OustandSeller extends Component {
                                     }
                                     let nameVi = `Nhân viên xuất sắc - ${item.firstName} ${item.lastName}`;
                                     let nameEn = `excellent staff - ${item.firstName} ${item.lastName}`
-                                    console.log('Check image url: ', item);
+                                    // console.log('Check image url: ', item);
                                     return (
                                         <div className="section-child" key={index}>
                                             <div className="bg-image section-outstand-seller"
