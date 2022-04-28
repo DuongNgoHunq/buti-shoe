@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions/appActions';
 import Slider from "react-slick";
+import { withRouter } from 'react-router';
 import './HomeHeader.scss';
 
 class HomeHeader extends Component {
@@ -11,6 +12,12 @@ class HomeHeader extends Component {
     changeLanguage = (language) => {
         //fire redux event: actions
         this.props.changeLanguageAppRedux(language)
+    }
+
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`)
+        }
     }
     render() {
         let language = this.props.language;
@@ -28,14 +35,14 @@ class HomeHeader extends Component {
                     <div className='home-header-content '>
                         <div className='left-content'>
                             <i className="fas fa-bars"></i>
-                            <div className='header-logo'>
+                            <div className='header-logo' onClick={() => this.returnToHome()}>
                                 <span> Buti</span>
                                 <span className='logo'> Shoe</span>
                             </div>
                         </div>
                         <div className='center-content'>
                             <div className='child-content'>
-                                <div><FormattedMessage id="homeheader.homeindex" /></div>
+                                <div onClick={() => this.returnToHome()}><FormattedMessage id="homeheader.homeindex" /></div>
                             </div>
                             <div className='child-content'>
                                 <div><FormattedMessage id="homeheader.product" /></div>
@@ -126,4 +133,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

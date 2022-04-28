@@ -36,7 +36,6 @@ class DetailProduct extends Component {
                         <div
                             className='content-left col-md-5 col-sm-12'
                             style={{ backgroundImage: `url(${detailProduct.image})` }}
-
                         >
 
                         </div>

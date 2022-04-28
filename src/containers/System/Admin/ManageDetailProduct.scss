@@ -5,13 +5,47 @@
         display: flex;
         gap: 15px;
         padding-bottom: 15px;
+
+        .content-left {
+            width: 40%;
+        }
+
+        .content-right {
+            width: 60%;
+        }
     }
 
-    .content-left {
-        width: 40%;
+    .manage-product-editor {}
+
+    .save-content-product {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        background: #FFC107;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.9;
+        }
     }
 
-    .content-right {
-        width: 60%;
+    .create-content-product {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        background: #0d6efd;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            opacity: 0.9;
+        }
     }
 }

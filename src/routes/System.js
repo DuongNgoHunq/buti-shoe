@@ -6,6 +6,7 @@ import UserRedux from '../containers/System/Admin/userRedux';
 import ProductManage from '../containers/System/Admin/ProductRedux';
 import Header from '../containers/Header/Header';
 import ManageDetailProduct from '../containers/System/Admin/Manage-detail-product';
+import ManageReciept from '../containers/System/Seller/ManageReciept';
 
 class System extends Component {
     render() {
@@ -21,9 +22,10 @@ class System extends Component {
                             <Route path="/system/user-redux" component={UserRedux} />
 
                             <Route path='/system/product-manager' component={ProductManage} />
-                            <Route path='/system/product-detaile-manager' component={ProductManage} />
+                            <Route path='/system/product-detaile-manager' component={ManageDetailProduct} />
+                            <Route path='/system/manage-recipte' component={ManageReciept} />
 
-
+                            {/*  */}
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>
