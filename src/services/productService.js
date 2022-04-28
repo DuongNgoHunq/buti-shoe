@@ -159,12 +159,46 @@ let saveInforDetailProduct = (inputData) => {
         }
     })
 }
+
+let getDetailProductService = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!id) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter !'
+                })
+            } else {
+                let data = await db.Product.findOne({
+                    where: {
+                        id: id
+                    },
+                    include: {
+                        model: db.Markdown,
+                        attributes: ['contentHTML', 'contentMarkdown', 'description', 'image', 'price']
+                    },
+                    raw: true,
+                    nest: true
+                })
+                resolve({
+                    errCode: 0,
+                    data: data
+                })
+            }
+        } catch (e) {
+
+            reject(e);
+        }
+    })
+}
+
 module.exports = {
     getAllProduct,
     getNewProductHome,
     createNewProduct,
     deleteProduct,
     updateProductData,
-    saveInforDetailProduct
+    saveInforDetailProduct,
+    getDetailProductService
 
 }

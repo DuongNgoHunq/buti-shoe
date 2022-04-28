@@ -65,6 +65,20 @@ let handlePostInforProduct = async (req, res) => {
         })
     }
 }
+let handleGetDetailProduct = async (req, res) => {
+    try {
+        let infor = await productService.getDetailProductService(req.body.id);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server... '
+        })
+    }
+}
 
 module.exports = {
     handleGetAllProduct,
@@ -72,5 +86,6 @@ module.exports = {
     handleCreateNewProduct,
     handleEditProduct,
     handleDeleteProduct,
-    handlePostInforProduct
+    handlePostInforProduct,
+    handleGetDetailProduct
 }

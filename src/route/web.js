@@ -33,6 +33,7 @@ let initWebRouter = (app) => {
 
     router.post('/api/create-new-product', productController.handleCreateNewProduct)
     router.post('/api/save-infor-product', productController.handlePostInforProduct)
+    router.get('/api/get-detail-product', productController.handleGetDetailProduct)
 
     router.put('/api/edit-product', productController.handleEditProduct)
     router.delete('/api/delete-product', productController.handleDeleteProduct)
