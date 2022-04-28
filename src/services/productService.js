@@ -31,12 +31,17 @@ const saveInforDetailProduct = (data) => {
     return axios.post(`/api/save-infor-product`, data)
 }
 
+const getdetailInforProduct = (id) => {
+    return axios.get(`/api/get-detail-product?id=${id}`)
+}
+
 export {
     getAllProduct,
     createNewProductService,
     deleteProductService,
     editProductService,
     getNewProductHome,
-    saveInforDetailProduct
+    saveInforDetailProduct,
+    getdetailInforProduct
 }
 

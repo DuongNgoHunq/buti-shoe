@@ -65,44 +65,46 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='header-body'>
-                    <Slider {...settings}>
-                        <div className='home-header-slide1'>
-                            <div className='title'><FormattedMessage id="banner.title1" /></div>
-                            <div className='description'>
-                                <i>
-                                    <FormattedMessage id="banner.description1" />
-                                </i>
+                {this.props.isShowSlider === true &&
+                    <div className='header-body'>
+                        <Slider {...settings}>
+                            <div className='home-header-slide1'>
+                                <div className='title'><FormattedMessage id="banner.title1" /></div>
+                                <div className='description'>
+                                    <i>
+                                        <FormattedMessage id="banner.description1" />
+                                    </i>
+                                </div>
+                                <div className='btn-buy-now'>
+                                    <button><FormattedMessage id="banner.btn" /></button>
+                                </div>
                             </div>
-                            <div className='btn-buy-now'>
-                                <button><FormattedMessage id="banner.btn" /></button>
+                            <div className='home-header-slide2'>
+                                <div className='title'><FormattedMessage id="banner.title3" /></div>
+                                <div className='description'>
+                                    <i>
+                                        <FormattedMessage id="banner.description3" />
+                                    </i>
+                                </div>
+                                <div className='btn-buy-now'>
+                                    <button><FormattedMessage id="banner.btn" /></button>
+                                </div>
                             </div>
-                        </div>
-                        <div className='home-header-slide2'>
-                            <div className='title'><FormattedMessage id="banner.title3" /></div>
-                            <div className='description'>
-                                <i>
-                                    <FormattedMessage id="banner.description3" />
-                                </i>
+                            <div className='home-header-slide3'>
+                                <div className='title'><FormattedMessage id="banner.title1" /></div>
+                                <div className='description'>
+                                    <i>
+                                        <FormattedMessage id="banner.description1" />
+                                    </i>
+                                </div>
+                                <div className='btn-buy-now'>
+                                    <button><FormattedMessage id="banner.btn" /></button>
+                                </div>
                             </div>
-                            <div className='btn-buy-now'>
-                                <button><FormattedMessage id="banner.btn" /></button>
-                            </div>
-                        </div>
-                        <div className='home-header-slide3'>
-                            <div className='title'><FormattedMessage id="banner.title1" /></div>
-                            <div className='description'>
-                                <i>
-                                    <FormattedMessage id="banner.description1" />
-                                </i>
-                            </div>
-                            <div className='btn-buy-now'>
-                                <button><FormattedMessage id="banner.btn" /></button>
-                            </div>
-                        </div>
 
-                    </Slider>
-                </div>
+                        </Slider>
+                    </div>
+                }
             </>
         );
     }

@@ -1,5 +1,5 @@
 .section-share {
-    &.section-new-product {}
+    // &.section-new-product {}
 
     &.section-brand {
         margin-top: 30px;
@@ -39,6 +39,7 @@
                 background-repeat: no-repeat;
                 background-color: #eee;
                 background-size: cover;
+                cursor: pointer;
 
                 &.section-new-product {
                     border: 1px solid orangered;
@@ -54,9 +55,9 @@
                     background-image: url('../../assets/new-product/adidas-1.jpg');
                 }
 
-                &.section-outstand-seller {
-                    // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
-                }
+                // &.section-outstand-seller {
+                //     // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
+                // }
 
                 &.section-news {
                     background-image: url('../../assets/news/new.jpg');

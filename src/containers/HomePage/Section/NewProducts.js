@@ -4,10 +4,10 @@ import './NewProducts.scss';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { FormattedMessage } from 'react-intl';
-
 import "slick-carousel/slick/slick-theme.css";
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils/constant';
+import { withRouter } from 'react-router';
 
 
 class NewProducts extends Component {
@@ -29,6 +29,12 @@ class NewProducts extends Component {
             })
         }
     }
+
+    handleViewDetailProduct = (product) => {
+        this.props.history.push(`/detail-product/${product.id}`)
+
+    }
+
     render() {
         let settings = this.props.settings;
         let arrNewProduct = this.state.arrNewProduct;
@@ -61,7 +67,7 @@ class NewProducts extends Component {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                                     }
                                     return (
-                                        <div div className="section-child" key={index} >
+                                        <div div className="section-child" key={index} onClick={() => this.handleViewDetailProduct(item)}>
                                             <div className="bg-image section-new-product"
                                                 style={{ backgroundImage: `url(${imageBase64})` }}
                                             />
@@ -98,4 +104,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProducts);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewProducts));

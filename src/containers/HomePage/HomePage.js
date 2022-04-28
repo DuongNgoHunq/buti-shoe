@@ -27,7 +27,7 @@ class HomePage extends Component {
         };
         return (
             <div>
-                <HomeHeader />
+                <HomeHeader isShowSlider={true} />
                 <NewProducts settings={settings} />
                 <OutstandBrand settings={settings} />
                 <OutstandProduct settings={settings} />
