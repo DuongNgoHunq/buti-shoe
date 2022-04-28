@@ -4,7 +4,8 @@ import {
     createNewProductService,
     deleteProductService,
     editProductService,
-    getNewProductHome
+    getNewProductHome,
+    saveInforDetailProduct
 } from '../../services/productService';
 import { toast } from 'react-toastify';
 
@@ -94,6 +95,36 @@ export const createProductSuccess = () => ({
 export const createProductFailed = () => ({
     type: actionTypes.CREATE_PRODUCT_FAILED
 })
+
+//update product
+export const saveProductInfor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveInforDetailProduct(data);
+            if (res && res.errCode === 0) {
+                toast.success("Save infor product success !")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_PRODUCT_SUCCESS,
+                });
+            } else {
+                toast.error("Save infor product error !")
+
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_PRODUCT_FAILED
+
+                });
+            }
+        } catch (e) {
+            toast.error("Save infor product error !")
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_PRODUCT_FAILED
+
+            });
+            console.log('SaveinforProductFailed error', e);
+        }
+    }
+}
+
 
 // Delete product
 export const deleteAProduct = (data) => {

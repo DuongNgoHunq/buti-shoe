@@ -50,6 +50,9 @@ export const adminMenu = [
             {
                 name: 'menu.admin.manager-product', link: '/system/product-manager'
             },
+            {
+                name: 'menu.admin.manager-detail-product', link: '/system/product-detaile-manager'
+            },
         ]
     },
     { //Quan ly tin tức

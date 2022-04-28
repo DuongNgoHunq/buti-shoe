@@ -65,7 +65,7 @@ class NewProducts extends Component {
                                             <div className="bg-image section-new-product"
                                                 style={{ backgroundImage: `url(${imageBase64})` }}
                                             />
-                                            <div className='price-new-product'>
+                                            <div className='price-new-productprice-new-product'>
                                                 <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                                                 <div className='price-detail-product'>
                                                     {language === LANGUAGES.VI ? priceVi : priceEn}

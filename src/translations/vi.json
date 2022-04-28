@@ -30,6 +30,7 @@
             "crud-redux": "CRUD redux",
             "product": "Sản phẩm",
             "manager-product": "Quản lý sản phẩm",
+            "manager-detail-product": "Quản lý chi tiết sản phẩm",
             "manager-news": "Quản lý tin tức",
             "news": "Tin tức"
         }

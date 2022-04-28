@@ -275,8 +275,6 @@ const mapStateToProps = state => {
     return {
         language: state.app.language,
         listProducts: state.admin.products
-
-
     };
 };
 

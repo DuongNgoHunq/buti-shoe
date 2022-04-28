@@ -5,6 +5,7 @@ import UserManage from '../containers/System/UserManage';
 import UserRedux from '../containers/System/Admin/userRedux';
 import ProductManage from '../containers/System/Admin/ProductRedux';
 import Header from '../containers/Header/Header';
+import ManageDetailProduct from '../containers/System/Admin/Manage-detail-product';
 
 class System extends Component {
     render() {
@@ -16,10 +17,12 @@ class System extends Component {
                     <div className="system-list">
                         <Switch>
                             <Route path="/system/user-manage" component={UserManage} />
-                            
+
                             <Route path="/system/user-redux" component={UserRedux} />
 
                             <Route path='/system/product-manager' component={ProductManage} />
+                            <Route path='/system/product-detaile-manager' component={ManageDetailProduct} />
+
 
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>

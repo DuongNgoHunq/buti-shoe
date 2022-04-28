@@ -27,11 +27,16 @@ const editProductService = (inputData) => {
     return axios.put('/api/edit-product', inputData)
 }
 
+const saveInforDetailProduct = (data) => {
+    return axios.post(`/api/save-infor-product`, data)
+}
+
 export {
     getAllProduct,
     createNewProductService,
     deleteProductService,
     editProductService,
-    getNewProductHome
+    getNewProductHome,
+    saveInforDetailProduct
 }
 
