@@ -18,6 +18,20 @@ let handleGetAllProduct = async (req, res) => {
         products
     })
 }
+let handleGetNewProduct = async (req, res) => {
+    let limit = req.query.limit;
+    if (!limit) limit = 10;
+    try {
+        let products = await productService.getNewProductHome(+limit);
+        return res.status(200).json(products);
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            message: 'Error from server ...'
+        })
+    }
+}
 let handleCreateNewProduct = async (req, res) => {
     let message = await productService.createNewProduct(req.body);
     console.log(message);
@@ -39,9 +53,24 @@ let handleDeleteProduct = async (req, res) => {
     return res.status(200).json(message);
 }
 
+let handlePostInforProduct = async (req, res) => {
+    try {
+        let response = await productService.saveInforDetailProduct(req.body);
+        return res.status(200).json(response);
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server ...'
+        })
+    }
+}
+
 module.exports = {
     handleGetAllProduct,
+    handleGetNewProduct,
     handleCreateNewProduct,
     handleEditProduct,
-    handleDeleteProduct
+    handleDeleteProduct,
+    handlePostInforProduct
 }

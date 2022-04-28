@@ -26,11 +26,18 @@ let initWebRouter = (app) => {
 
     //api product
     router.get('/api/get-all-products', productController.handleGetAllProduct)
+
+    router.get('/api/get-new-products', productController.handleGetNewProduct)
+    // router.get('/api/get-top-products', productController.handleGetTopProduct)
+
+
     router.post('/api/create-new-product', productController.handleCreateNewProduct)
+    router.post('/api/save-infor-product', productController.handlePostInforProduct)
+
     router.put('/api/edit-product', productController.handleEditProduct)
     router.delete('/api/delete-product', productController.handleDeleteProduct)
 
-    //api seller ]
+    //api seller 
     router.get('/api/get-top-seller', sellerController.getTopSellerHome)
 
     router.get('/dnh', (req, res) => {

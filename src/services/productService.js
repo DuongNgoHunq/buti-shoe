@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import db from "../models/index";
 
 let getAllProduct = (productId) => {
@@ -21,6 +22,27 @@ let getAllProduct = (productId) => {
         }
     })
 }
+
+let getNewProductHome = (limitInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let products = await db.Product.findAll({
+                limit: limitInput,
+                order: [['createdAt', 'DESC']],
+                attributes: {
+                    exclude: []
+                }
+            })
+            resolve({
+                errCode: 0,
+                data: products
+            })
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
 let createNewProduct = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -109,10 +131,40 @@ let updateProductData = (data) => {
         }
     })
 }
+let saveInforDetailProduct = (inputData) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!inputData.productId || !inputData.contentHTML || !inputData.contentMarkdown) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter !'
+                })
+            }
+            else {
+                await db.Markdown.create({
+                    contentHTML: inputData.contentHTML,
+                    contentMarkdown: inputData.contentMarkdown,
+                    productId: inputData.productId,
+                    description: inputData.description,
+                    price: inputData.price,
+                    image: inputData.image
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: 'Save infor product success !'
+                })
+            }
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
 module.exports = {
     getAllProduct,
+    getNewProductHome,
     createNewProduct,
     deleteProduct,
-    updateProductData
+    updateProductData,
+    saveInforDetailProduct
 
 }
