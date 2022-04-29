@@ -15,18 +15,59 @@
         .content-right {
             height: 400px;
 
-
-            // border: 1px solid rgb(28, 0, 128);
-
             .name-product {
                 padding-top: 10px;
-                font-size: 20px;
-                font-weight: 600px;
+                padding-top: 10px;
+                font-size: 30px;
+                color: #1e1e23;
+                font-weight: 300;
             }
 
             .desciption-product {
                 padding-top: 10px;
-                font-size: 18px;
+                padding-top: 10px;
+                font-size: 15px;
+                color: #7c7c80;
+            }
+
+            .price-product {
+                font-size: 26px;
+                color: red;
+                padding-top: 10px;
+            }
+
+            .delivery-return {
+                border-bottom: 1px solid #ccc;
+                padding: 15px 0;
+
+            }
+
+            .contact {
+                p {
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                    font-size: 21px;
+
+                }
+
+                span {
+                    color: red;
+                }
+
+            }
+
+            .btn-buy-now {
+
+                border: none;
+                outline: none;
+                padding: 5px;
+                font-size: 23px;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                    color: red;
+                }
             }
         }
     }

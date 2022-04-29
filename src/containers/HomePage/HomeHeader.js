@@ -19,6 +19,26 @@ class HomeHeader extends Component {
             this.props.history.push(`/home`)
         }
     }
+    gotoProduct = () => {
+        if (this.props.history) {
+            this.props.history.push(`/product`)
+        }
+    }
+    gotoBrand = () => {
+        if (this.props.history) {
+            this.props.history.push(`/brand`)
+        }
+    }
+    gotoNews = () => {
+        if (this.props.history) {
+            this.props.history.push(`/news-page`)
+        }
+    }
+    gotoContact = () => {
+        if (this.props.history) {
+            this.props.history.push(`/contact`)
+        }
+    }
     render() {
         let language = this.props.language;
         const settings = {
@@ -45,16 +65,16 @@ class HomeHeader extends Component {
                                 <div onClick={() => this.returnToHome()}><FormattedMessage id="homeheader.homeindex" /></div>
                             </div>
                             <div className='child-content'>
-                                <div><FormattedMessage id="homeheader.product" /></div>
+                                <div onClick={() => this.gotoProduct()}><FormattedMessage id="homeheader.product" /></div>
                             </div>
                             <div className='child-content'>
-                                <div><FormattedMessage id="homeheader.brand" /></div>
+                                <div onClick={() => this.gotoBrand()}><FormattedMessage id="homeheader.brand" /></div>
                             </div>
                             <div className='child-content'>
-                                <div><FormattedMessage id="homeheader.new" /></div>
+                                <div onClick={() => this.gotoNews()}><FormattedMessage id="homeheader.new" /></div>
                             </div>
                             <div className='child-content'>
-                                <div><FormattedMessage id="homeheader.contact" /></div>
+                                <div onClick={() => this.gotoContact()}><FormattedMessage id="homeheader.contact" /></div>
                             </div>
 
                         </div>

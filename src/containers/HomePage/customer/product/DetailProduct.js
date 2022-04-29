@@ -46,6 +46,17 @@ class DetailProduct extends Component {
                             <div className='desciption-product'>
                                 {detailProduct.description}
                             </div>
+                            <div className='price-product'>
+                                {detailProduct.price} .vnd
+                            </div>
+                            <div className='delivery-return '>CHÍNH SÁCH GIAO HÀNG &amp; ĐỔI TRẢ</div>
+                            <div className='delivery-return '>HƯỚNG DẪN BẢO QUẢN</div>
+                            <div className='contact'>
+                                <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
+                            </div>
+                            <button className='btn-buy-now'>
+                                Mua ngay
+                            </button>
                         </div>
                     </div>
                     <div className='intro-markdown-product'>

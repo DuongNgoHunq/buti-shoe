@@ -13,6 +13,10 @@ import HomePage from './HomePage/HomePage';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import CustomScrollbars from '../components/CustomScrollbars';
 import DetailProduct from './HomePage/customer/product/DetailProduct';
+import AllProduct from './HomePage/customer/product/AllProduct';
+import AllBrand from './HomePage/customer/brand/AllBrand';
+import NewsPage from './HomePage/Section/News';
+import Contact from './HomePage/customer/news/Contact';
 
 class App extends Component {
 
@@ -49,6 +53,13 @@ class App extends Component {
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_PRODUCT} component={DetailProduct} />
+                                    <Route path={path.ALL_PRODUCT} component={AllProduct} />
+                                    <Route path={path.BRAND} component={AllBrand} />
+                                    <Route path={path.NEWSPAGE} component={NewsPage} />
+                                    <Route path={path.CONTACT} component={Contact} />
+
+
+
 
 
                                 </Switch>

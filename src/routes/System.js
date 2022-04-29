@@ -22,6 +22,7 @@ class System extends Component {
                             <Route path="/system/user-redux" component={UserRedux} />
 
                             <Route path='/system/product-manager' component={ProductManage} />
+
                             <Route path='/system/product-detaile-manager' component={ManageDetailProduct} />
                             <Route path='/system/manage-recipte' component={ManageReciept} />
 
