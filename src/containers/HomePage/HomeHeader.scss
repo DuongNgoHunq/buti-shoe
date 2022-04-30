@@ -1,49 +1,35 @@
 .home-header-container {
     height: 60px;
-    // width     : 100%;
     padding: 0 40px;
     position: sticky;
     top: 0;
     background: white;
-    z-index: 1000 !important;
-    border-bottom: 1px solid orangered;
+    z-index: 999 !important;
+    border-bottom: 1px solid rgb(243, 239, 239);
 
     .home-header-content {
         width: 100%;
         height: 100%;
-        display: flex;
 
-        .left-content {
-            padding-left: 30px;
-            width: 20%;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
 
-            .header-logo {
-                font-size: 30px;
+        .header-logo {
 
-                .logo {
-                    color: #e42e50;
-                }
+            .logo {
+                color: #e42e50;
             }
+        }
 
-            i {
-                padding-right: 20px;
-                color: gray;
-                font-size: 25px;
-            }
+        #navbarSupportedContent {
+            z-index: 1000 !important;
         }
 
         .center-content {
             align-items: center;
-            width: 55%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600px;
             font-size: 19px;
-            padding: 0 100px;
 
             .child-content {
                 cursor: pointer;
@@ -60,14 +46,16 @@
             width: 25%;
             display: flex;
             justify-content: space-evenly;
-            padding: 0 70px;
             align-items: center;
-            font-size: 16px;
+
+            i {
+                padding: 0 5px;
+            }
 
             .language-vi {
                 opacity: 0.2;
                 cursor: pointer;
-
+                padding: 0 5px;
 
                 &.active {
                     color: rgb(206, 61, 8);

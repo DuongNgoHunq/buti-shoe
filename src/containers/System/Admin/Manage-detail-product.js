@@ -145,13 +145,16 @@ class ManageDetailProduct extends Component {
                         value={this.state.contentMarkdown}
                     />
                 </div>
-                <button
-                    onClick={() => this.handleSaveContentMarkdown()}
+                <div className="btn-save-infor-product">
+                    <button
+                        onClick={() => this.handleSaveContentMarkdown()}
 
-                    className={hasMarkdownData === true ? "save-content-product" : "create-content-product"}
-                >
-                    {hasMarkdownData === true ? <span>Luu thong tin </span> : <span>Tao thong tin</span>}
-                </button>
+                        className={hasMarkdownData === true ? "save-content-product" : "create-content-product"}
+                    >
+                        {hasMarkdownData === true ? <span>Luu thong tin </span> : <span>Tao thong tin</span>}
+                    </button>
+                </div>
+
             </div>
         );
     }

@@ -33,44 +33,47 @@ class DetailProduct extends Component {
             <>
                 <HomeHeader isShowSlider={false} />
                 <div className='doctor-detail-container container-xl'>
-                    <div className='intro-product row '>
-                        <div
-                            className='content-left col-md-5 col-sm-12 image-detail'
-                            style={{ backgroundImage: `url(${detailProduct.image})` }}
-                        >
+                    <div className='container-xl'>
+                        <div className='intro-product row '>
+                            <div
+                                className='content-left col-md-5 col-sm-12 image-detail'
+                                style={{ backgroundImage: `url(${detailProduct.image})` }}
+                            >
 
-                        </div>
-                        <div className='content-right col-md-7 col-sm-12'>
-                            <div className='name-product'>
-                                {detailProduct.name}
                             </div>
-                            <div className='desciption-product'>
-                                {detailProduct.description}
+                            <div className='content-right col-md-7 col-sm-12'>
+                                <div className='name-product'>
+                                    {detailProduct.name}
+                                </div>
+                                <div className='desciption-product'>
+                                    {detailProduct.description}
+                                </div>
+                                <div className='price-product'>
+                                    {detailProduct.price} VND
+                                </div>
+                                <div className='delivery-return '>CHÍNH SÁCH GIAO HÀNG &amp; ĐỔI TRẢ</div>
+                                <div className='delivery-return '>HƯỚNG DẪN BẢO QUẢN</div>
+                                <div className='contact'>
+                                    <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
+                                </div>
+                                <button className='btn btn-outline-dark px-4 py-2 '>
+                                    Add to Cart
+                                </button>
+                                <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
+                                    Go to Cart
+                                </NavLink>
                             </div>
-                            <div className='price-product'>
-                                {detailProduct.price} .vnd
-                            </div>
-                            <div className='delivery-return '>CHÍNH SÁCH GIAO HÀNG &amp; ĐỔI TRẢ</div>
-                            <div className='delivery-return '>HƯỚNG DẪN BẢO QUẢN</div>
-                            <div className='contact'>
-                                <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
-                            </div>
-                            <button className='btn btn-outline-dark px-4 py-2 '>
-                                Add to Cart
-                            </button>
-                            <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
-                                Go to Cart
-                            </NavLink>
                         </div>
                     </div>
-                    <div className='intro-markdown-product'>
+
+                    <div className='intro-markdown-product '>
                         {detailProduct.Markdown && detailProduct.Markdown.contentHTML
                             && <div dangerouslySetInnerHTML={{ __html: detailProduct.Markdown.contentHTML }}>
 
                             </div>
                         }
                     </div>
-                    <div className='detail-infor-product'>
+                    <div className='detail-infor-product row'>
 
                     </div>
                     <div className='comment-product'></div>

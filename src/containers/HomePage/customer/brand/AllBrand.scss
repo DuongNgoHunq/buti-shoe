@@ -1,0 +1,108 @@
+.brand-container {
+    padding-top: 30px;
+
+    .brand-left {
+
+        .sidebar-blog {
+            border: 1px solid #eee;
+            padding: 15px;
+
+            .sidebar-title {
+                padding: 0 10px;
+                padding-bottom: 10px;
+                font-size: 18px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .sidebar-brand-child {
+                display: flex;
+                margin: 5px 0;
+                cursor: pointer;
+
+                .brand-img-sm {
+                    background-image: url('../../../../assets/images/Brand/adidas.jpg');
+                    background-position: center center;
+                    background-size: cover;
+                    width: 60px;
+                    height: 60px;
+                    min-width: 59px;
+                }
+
+                .description {
+                    font-size: 15px;
+                    margin: 0;
+                }
+
+                .date {
+                    font-size: 13px;
+                    // padding: ;
+                }
+
+                .sidebar-brand-text {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+
+    }
+
+    .brand-right {
+        padding: 0 10px;
+
+        .content-title {
+            font-size: 24px;
+            margin-bottom: 13px;
+        }
+
+        .brand-content {
+            .brand-content-child {
+                cursor: pointer;
+                margin-top: 15px;
+
+                .brand-content-img-lg {
+
+                    background-image: url('../../../../assets/images/Brand/adidas.jpg');
+                    background-position: center center;
+                    background-size: cover;
+                    width: 100%;
+                    height: 250px;
+                    border: 1px solid orchid;
+                    margin: 0 auto;
+
+                }
+
+                .news-content-description {
+                    width: 90%;
+                    margin: 0 auto;
+                    background-color: #fff;
+                    text-align: center;
+                    height: 144px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 6;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    padding: 0 10px;
+                    top: 100px;
+
+
+                    .news-content-title {
+                        text-align: center;
+                        font-size: 15px;
+                        padding-top: 13px;
+                    }
+
+                    .description-news {
+                        font-size: 14px;
+
+                    }
+
+                    .news-content-date {
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+    }
+}

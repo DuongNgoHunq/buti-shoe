@@ -64,7 +64,13 @@
 
                 &.section-new-product {
                     border: 1px solid grey;
+
                     // background-image: url('../../assets/new-product/nike-1.jpg');
+                    &:hover {
+                        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
+                        transition: 1s;
+                        transform: translateY(-8px);
+                    }
 
                 }
 
@@ -72,16 +78,34 @@
                     border: 1px solid grey;
 
                     background-image: url('../../assets/images/outstand-brand/logo-adidas.jpg');
+
+                    &:hover {
+                        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
+                        transition: 1s;
+                        transform: translateY(-8px);
+                    }
                 }
 
                 &.section-outstand-product {
                     border: 1px solid grey;
 
                     background-image: url('../../assets/new-product/adidas-1.jpg');
+
+                    &:hover {
+                        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
+                        transition: 1s;
+                        transform: translateY(-8px);
+                    }
                 }
 
                 &.section-outstand-seller {
                     border: 1px solid grey;
+
+                    &:hover {
+                        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
+                        transition: 1s;
+                        transform: translateY(-8px);
+                    }
 
                     // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
                 }
@@ -91,6 +115,12 @@
 
                     background-image: url('../../assets/news/new.jpg');
                     background-color: white;
+
+                    &:hover {
+                        box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
+                        transition: 1s;
+                        transform: translateY(-8px);
+                    }
 
                 }
             }
