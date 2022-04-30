@@ -1,4 +1,3 @@
-import { resolve } from "path";
 import db from "../models/index";
 
 let getAllProduct = (productId) => {
@@ -134,21 +133,41 @@ let updateProductData = (data) => {
 let saveInforDetailProduct = (inputData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!inputData.productId || !inputData.contentHTML || !inputData.contentMarkdown) {
+            if (!inputData.productId || !inputData.contentHTML
+                || !inputData.contentMarkdown || !inputData.actions) {
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing parameter !'
                 })
             }
             else {
-                await db.Markdown.create({
-                    contentHTML: inputData.contentHTML,
-                    contentMarkdown: inputData.contentMarkdown,
-                    productId: inputData.productId,
-                    description: inputData.description,
-                    price: inputData.price,
-                    image: inputData.image
-                })
+                if (inputData.actions === 'CREATE') {
+                    await db.Markdown.create({
+                        contentHTML: inputData.contentHTML,
+                        contentMarkdown: inputData.contentMarkdown,
+                        productId: inputData.productId,
+                        description: inputData.description,
+                        price: inputData.price,
+                        image: inputData.image
+                    })
+                }
+                else if (inputData.actions === 'EDIT') {
+                    let productMarkdown = await db.Markdown.findOne({
+                        where: { productId: inputData.productId },
+                        raw: false
+                    })
+                    if (productMarkdown) {
+                        productMarkdown.contentHTML = inputData.contentHTML;
+                        productMarkdown.contentMarkdown = inputData.contentMarkdown;
+                        productMarkdown.productId = inputData.productId;
+                        productMarkdown.description = inputData.description;
+                        productMarkdown.price = inputData.price;
+                        productMarkdown.image = inputData.image;
+
+                        await productMarkdown.save()
+                    }
+                }
+
                 resolve({
                     errCode: 0,
                     errMessage: 'Save infor product success !'
@@ -177,9 +196,13 @@ let getDetailProductService = (id) => {
                         model: db.Markdown,
                         attributes: ['contentHTML', 'contentMarkdown', 'description', 'image', 'price']
                     },
-                    raw: true,
+                    raw: false,
                     nest: true
                 })
+                if (data && data.image) {
+                    data.image = new Buffer(data.image, 'base64').toString('binary')
+
+                }
                 resolve({
                     errCode: 0,
                     data: data

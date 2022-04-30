@@ -1,8 +1,5 @@
 import db from "../models/index";
 import bcrypt from 'bcryptjs';
-import { resolve } from 'path';
-import { assert } from "console";
-
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -228,5 +225,4 @@ module.exports = {
     deleteUser,
     updateUserData,
     getAllCodeService
-
 }

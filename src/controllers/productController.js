@@ -67,7 +67,7 @@ let handlePostInforProduct = async (req, res) => {
 }
 let handleGetDetailProduct = async (req, res) => {
     try {
-        let infor = await productService.getDetailProductService(req.body.id);
+        let infor = await productService.getDetailProductService(req.query.id);
         return res.status(200).json(
             infor
         )
