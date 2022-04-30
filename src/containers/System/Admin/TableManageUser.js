@@ -43,9 +43,9 @@ class TableManageUser extends Component {
             <table id="tablemanageuser">
                 <tbody>
                     <tr>
+                        <th>Email</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Email</th>
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th>Action</th>

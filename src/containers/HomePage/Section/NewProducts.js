@@ -59,8 +59,8 @@ class NewProducts extends Component {
                                 arrNewProduct.map((item, index) => {
                                     let nameVi = `Giày cao cấp ${item.name}`;
                                     let nameEn = `Luxury shoes ${item.name}`;
-                                    let priceVi = `Giá: ${item.price}`;
-                                    let priceEn = `Price: ${item.price}`;
+                                    let priceVi = `Giá: `;
+                                    let priceEn = `Price: `;
 
                                     let imageBase64 = '';
                                     if (item.image) {
@@ -71,10 +71,11 @@ class NewProducts extends Component {
                                             <div className="bg-image section-new-product"
                                                 style={{ backgroundImage: `url(${imageBase64})` }}
                                             />
+
                                             <div className='price-new-productprice-new-product'>
-                                                <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
+                                                <div className='name-product'>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                                                 <div className='price-detail-product'>
-                                                    {language === LANGUAGES.VI ? priceVi : priceEn}
+                                                    {language === LANGUAGES.VI ? priceVi : priceEn} <span>{item.price} VND</span>
                                                 </div>
                                             </div>
                                         </div>

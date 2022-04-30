@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import HomeHeader from '../../HomeHeader';
 import './DetailProduct.scss';
 import { getdetailInforProduct } from '../../../../services/productService';
+import { NavLink } from 'react-router-dom';
 
 class DetailProduct extends Component {
     constructor(props) {
@@ -54,9 +55,12 @@ class DetailProduct extends Component {
                             <div className='contact'>
                                 <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
                             </div>
-                            <button className='btn-buy-now'>
-                                Mua ngay
+                            <button className='btn btn-outline-dark px-4 py-2 '>
+                                Add to Cart
                             </button>
+                            <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
+                                Go to Cart
+                            </NavLink>
                         </div>
                     </div>
                     <div className='intro-markdown-product'>

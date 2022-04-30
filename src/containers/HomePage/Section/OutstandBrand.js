@@ -19,39 +19,59 @@ class OutstandBrand extends Component {
                         <Slider {...this.props.settings}>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
 
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
+                            </div>
+                            <div className="section-child">
+                                <div className="bg-image section-outstand-brand" />
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
+                            </div>
+                            <div className="section-child">
+                                <div className="bg-image section-outstand-brand" />
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
 
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
-
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
-
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
-
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
-
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
-
-                            </div>
-                            <div className="section-child">
-                                <div className="bg-image section-outstand-brand" />
-
-                            </div>
-                            <div className="section-child">
-                                <div className="bg-image section-outstand-brand" />
-
+                                <div className='description'>
+                                    <p>Adidas thương hiệu nổi bật 2022 </p>
+                                </div>
                             </div>
 
                         </Slider>

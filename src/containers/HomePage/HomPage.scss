@@ -2,13 +2,13 @@
     // &.section-new-product {}
 
     &.section-brand {
-        margin-top: 30px;
+        margin-top: 40px;
         padding-top: 0;
         background: #f5f5f5;
     }
 
     &.section-outstand-product {
-        background: #f5f5f5;
+        background: white;
         border: 1px solid red;
         padding-top: 0;
         margin-top: -80px;
@@ -18,12 +18,21 @@
         background: #f5f5f5;
         border: 1px solid red;
         padding-top: 0;
-        margin-top: -80px;
+        margin-top: -60px;
+
+        p {
+            padding-top: 10px;
+            font-size: 17px;
+            font-weight: 500;
+            color: #302d2d;
+        }
     }
 
     &.section-news {
-        border: 1px solid red;
         padding-top: 0;
+
+        margin-top: -20px;
+
         // margin-top : -149px;
     }
 
@@ -55,9 +64,9 @@
                     background-image: url('../../assets/new-product/adidas-1.jpg');
                 }
 
-                // &.section-outstand-seller {
-                //     // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
-                // }
+                &.section-outstand-seller {
+                    // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
+                }
 
                 &.section-news {
                     background-image: url('../../assets/news/new.jpg');

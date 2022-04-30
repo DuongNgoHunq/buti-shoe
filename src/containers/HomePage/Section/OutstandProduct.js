@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from "react-slick";
-
+import './OutstandProduct.scss';
 
 class OutstandProduct extends Component {
 
@@ -18,66 +18,66 @@ class OutstandProduct extends Component {
                         <Slider {...this.props.settings}>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
 
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span></div>
+
                                 </div>
                             </div>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-product" />
-                                <div className='position text-center'>
-                                    <div>Giày sneaker Adidas - EQT basketball ADV </div>
-                                    <div>Adidas</div>
+                                <div className='description'>
+                                    <div>Giày sneaker Adidas - EQT basketball ADV - <span>Adidas</span> </div>
+
                                 </div>
                             </div>
                         </Slider>
