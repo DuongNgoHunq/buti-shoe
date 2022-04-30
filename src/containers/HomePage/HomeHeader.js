@@ -51,16 +51,16 @@ class HomeHeader extends Component {
         };
         return (
             <>
-                <div className='home-header-container'>
-                    <div className='home-header-content '>
-                        <div className='left-content'>
+                <div className='home-header-container container-fluid'>
+                    <div className='home-header-content row'>
+                        <div className='left-content col-md-4 d-flex'>
                             <i className="fas fa-bars"></i>
                             <div className='header-logo' onClick={() => this.returnToHome()}>
                                 <span> Buti</span>
                                 <span className='logo'> Shoe</span>
                             </div>
                         </div>
-                        <div className='center-content'>
+                        <div className='center-content col-md-5 '>
                             <div className='child-content'>
                                 <div onClick={() => this.returnToHome()}><FormattedMessage id="homeheader.homeindex" /></div>
                             </div>
@@ -78,7 +78,7 @@ class HomeHeader extends Component {
                             </div>
 
                         </div>
-                        <div className='right-content'>
+                        <div className='right-content col-md-3 '>
 
                             <i className="fas fa-search "></i>
                             <i className="fas fa-user"></i>

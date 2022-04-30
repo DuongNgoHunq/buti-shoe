@@ -35,7 +35,7 @@ class DetailProduct extends Component {
                 <div className='doctor-detail-container container-xl'>
                     <div className='intro-product row '>
                         <div
-                            className='content-left col-md-5 col-sm-12'
+                            className='content-left col-md-5 col-sm-12 image-detail'
                             style={{ backgroundImage: `url(${detailProduct.image})` }}
                         >
 

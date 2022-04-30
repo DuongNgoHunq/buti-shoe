@@ -41,7 +41,7 @@ class NewProducts extends Component {
         let { language } = this.props;
 
         return (
-            <div className='section-share'>
+            <div className='section-share container-xl'>
                 <div className='section-container'>
                     <div className='section-header'>
                         <span className='title-section'>
@@ -52,7 +52,7 @@ class NewProducts extends Component {
 
                         </button>
                     </div>
-                    <div className='section-body'>
+                    <div className='section-body row'>
                         <Slider {...settings}>
 
                             {arrNewProduct && arrNewProduct.length &&
@@ -67,7 +67,7 @@ class NewProducts extends Component {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                                     }
                                     return (
-                                        <div div className="section-child" key={index} onClick={() => this.handleViewDetailProduct(item)}>
+                                        <div div className="section-child col-md-4 col-sm-4 col-xs-12" key={index} onClick={() => this.handleViewDetailProduct(item)}>
                                             <div className="bg-image section-new-product"
                                                 style={{ backgroundImage: `url(${imageBase64})` }}
                                             />

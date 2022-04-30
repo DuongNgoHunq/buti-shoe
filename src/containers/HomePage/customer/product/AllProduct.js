@@ -4,8 +4,6 @@ import { withRouter } from 'react-router';
 import HomeHeader from '../../HomeHeader';
 import * as actions from '../../../../store/actions';
 
-
-
 // import './AllProduct.scss';
 
 class AllProduct extends Component {
@@ -41,7 +39,7 @@ class AllProduct extends Component {
                 <HomeHeader isShowSlider={false} />
                 <div className='container-xl'>
                     <div className='row'>
-                        
+
                     </div>
                 </div>
             </div>

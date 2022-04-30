@@ -15,7 +15,7 @@ import CustomScrollbars from '../components/CustomScrollbars';
 import DetailProduct from './HomePage/customer/product/DetailProduct';
 import AllProduct from './HomePage/customer/product/AllProduct';
 import AllBrand from './HomePage/customer/brand/AllBrand';
-import NewsPage from './HomePage/Section/News';
+import NewsPage from './HomePage/customer/news/NewsPage';
 import Contact from './HomePage/customer/news/Contact';
 
 class App extends Component {
@@ -46,7 +46,7 @@ class App extends Component {
                     <div className="main-container">
 
                         <span className="content-container">
-                            <CustomScrollbars style={{ height: '100vh', with: '100%' }}>
+                            <CustomScrollbars style={{ height: '110vh', with: '100%' }}>
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />

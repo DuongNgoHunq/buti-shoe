@@ -10,9 +10,11 @@ const initialState = {
     products: [],
     topSellers: [],
     newProducts: [],
+    cart: [],
 }
 
 const adminReducer = (state = initialState, action) => {
+    const product = action.payload;
     switch (action.type) {
         case actionTypes.FETCH_GENDER_START:
             return {
@@ -103,6 +105,8 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+
+
         default:
             return state;
     }

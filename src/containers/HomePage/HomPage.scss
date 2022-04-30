@@ -9,23 +9,28 @@
 
     &.section-outstand-product {
         background: white;
-        border: 1px solid red;
+        // border: 1px solid red;
         padding-top: 0;
         margin-top: -80px;
+        margin-bottom: -67px;
     }
 
     &.section-outstand-seller {
         background: #f5f5f5;
-        border: 1px solid red;
+        border: 1px solid grey;
         padding-top: 0;
         margin-top: -60px;
+        margin-top: -86px !important;
 
-        p {
-            padding-top: 10px;
-            font-size: 17px;
-            font-weight: 500;
-            color: #302d2d;
+        .section-share {
+            padding-top: 0px !important;
+
+            .section-body-seller {
+                margin-top: -85px;
+
+            }
         }
+
     }
 
     &.section-news {
@@ -33,6 +38,8 @@
 
         margin-top: -20px;
 
+        background-color: white;
+        margin-bottom: -100px;
         // margin-top : -149px;
     }
 
@@ -43,34 +50,47 @@
             cursor: pointer;
 
             .bg-image {
-                height: 240px;
-                width: 280px;
+                width: 95%;
+                height: 80%;
+                // height: 240px;
+                // height: 240px;
+                // width: 280px;
+                background-position: center center;
+                background-attachment: fixed;
                 background-repeat: no-repeat;
                 background-color: #eee;
                 background-size: cover;
                 cursor: pointer;
 
                 &.section-new-product {
-                    border: 1px solid orangered;
+                    border: 1px solid grey;
                     // background-image: url('../../assets/new-product/nike-1.jpg');
 
                 }
 
                 &.section-outstand-brand {
+                    border: 1px solid grey;
+
                     background-image: url('../../assets/images/outstand-brand/logo-adidas.jpg');
                 }
 
                 &.section-outstand-product {
+                    border: 1px solid grey;
+
                     background-image: url('../../assets/new-product/adidas-1.jpg');
                 }
 
                 &.section-outstand-seller {
+                    border: 1px solid grey;
+
                     // background-image: url('../../assets/images/outstand-seller/gai-xinh-1.jfif');
                 }
 
                 &.section-news {
-                    background-image: url('../../assets/news/new.jpg');
+                    border: 1px solid grey;
 
+                    background-image: url('../../assets/news/new.jpg');
+                    background-color: white;
 
                 }
             }
@@ -98,7 +118,7 @@
     padding-top: 78px;
 
     .section-container {
-        margin: 0 100px;
+        // margin: 0 100px;
         display: flex;
         flex-direction: column;
 
@@ -183,4 +203,5 @@
     }
 
     text-decoration: none;
+    z-index: 1000;
 }

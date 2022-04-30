@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import HomeHeader from '../../HomeHeader';
 
-
-// import './NewsPage.scss';
-
 class NewsPage extends Component {
 
     render() {
@@ -13,9 +10,7 @@ class NewsPage extends Component {
         return (
             <div>
                 <HomeHeader isShowSlider={false} />
-                <div className='container-xl'>
-                    hello from NewsPage
-                </div>
+                <div>new</div>
             </div>
         );
     }

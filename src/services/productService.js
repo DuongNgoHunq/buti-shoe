@@ -35,6 +35,14 @@ const getdetailInforProduct = (id) => {
     return axios.get(`/api/get-detail-product?id=${id}`)
 }
 
+/// add item to cart
+const addCartService = (id) => {
+    return axios.get(`/api/get-detail-product?id=${id}`)
+}
+const delCartService = (id) => {
+    return axios.get(`/api/get-detail-product?id=${id}`)
+}
+
 export {
     getAllProduct,
     createNewProductService,
@@ -42,6 +50,7 @@ export {
     editProductService,
     getNewProductHome,
     saveInforDetailProduct,
-    getdetailInforProduct
+    getdetailInforProduct, addCartService,
+    delCartService
 }
 

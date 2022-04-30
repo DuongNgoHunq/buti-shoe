@@ -9,13 +9,13 @@ class OutstandBrand extends Component {
     render() {
 
         return (
-            <div className='section-share section-brand'>
-                <div className='section-container'>
+            <div className='section-share section-brand container-fluid'>
+                <div className='section-container container-xl'>
                     <div className='section-header'>
                         <span className='title-section'>Thương hiệu nổi bật</span>
                         <button className='btn-section'>Xem thêm</button>
                     </div>
-                    <div className='section-body'>
+                    <div className='section-body container-xl'>
                         <Slider {...this.props.settings}>
                             <div className="section-child">
                                 <div className="bg-image section-outstand-brand" />
