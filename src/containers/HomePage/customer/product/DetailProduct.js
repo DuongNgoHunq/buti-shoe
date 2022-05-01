@@ -4,6 +4,7 @@ import HomeHeader from '../../HomeHeader';
 import './DetailProduct.scss';
 import { getdetailInforProduct } from '../../../../services/productService';
 import { NavLink } from 'react-router-dom';
+import HomeFooter from '../../Section/HomeFooter';
 
 class DetailProduct extends Component {
     constructor(props) {
@@ -36,6 +37,7 @@ class DetailProduct extends Component {
                     <div className='container-xl'>
                         <div className='intro-product row '>
                             <div
+
                                 className='content-left col-md-5 col-sm-12 image-detail'
                                 style={{ backgroundImage: `url(${detailProduct.image})` }}
                             >
@@ -78,6 +80,7 @@ class DetailProduct extends Component {
                     </div>
                     <div className='comment-product'></div>
                 </div>
+                <HomeFooter />
             </>
 
         );

@@ -5,6 +5,7 @@ import HomeHeader from '../../HomeHeader';
 import SidebarBrand from './Sidebar';
 import './AllBrand.scss';
 import BrandContent from './BrandContent';
+import HomeFooter from '../../Section/HomeFooter';
 
 class AllBrand extends Component {
 
@@ -24,10 +25,8 @@ class AllBrand extends Component {
 
                         </div>
                     </div>
-
-
-
                 </div>
+                <HomeFooter />
 
             </div>
         );

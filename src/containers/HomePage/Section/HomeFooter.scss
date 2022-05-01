@@ -1,12 +1,63 @@
 .home-footer {
     z-index: 1000;
     width: 100%;
-    // border: 1px solid orangered;
-    background-color: black;
-    height: 100px;
+    height: 525px;
+    font-family: sans-serif;
+    padding-bottom: 100px;
 
-    p {
-        margin-top: 13px;
-        color: aliceblue;
+
+    .footer-content {
+        width: 100%;
+
+        padding: 20px 100px;
+        color: #d9d4d4;
+
+        .infor-shop {
+            text-align: left;
+            border-top: 1px solid rgb(168, 161, 158);
+
+            .footer-logo {
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.9);
+                font-size: 20px;
+                cursor: pointer;
+                padding-top: 10px;
+
+                font-size: 20px;
+
+                .logo-footer {
+                    color: #e42e50 !important;
+                }
+            }
+
+            .description-footer {
+                padding-top: 5px;
+                color: rgb(94, 90, 90);
+
+                &:hover {
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+    }
+
+    .footer-end-game {
+        text-align: center;
+        height: 70px;
+        background-color: rgb(44, 41, 41);
+        color: white;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+        }
+
     }
 }

@@ -1,0 +1,56 @@
+.new-container {
+    .new-left {
+        border: 1px solid #ddd;
+
+        .sidebar-product-blog {
+
+            .sidebar-title {
+                padding-top: 10px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+            }
+
+            .sidebar-product-content {
+                .child-sidebar {
+                    padding-top: 10px;
+                    align-items: center;
+                    display: flex;
+                    padding-bottom: 10px;
+
+                    .element-product {
+                        // border: 1px solid red;
+                        width: 200px;
+                        padding-left: 10px;
+                    }
+
+                    .status-quanlity {
+                        padding-left: 100px;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .new-right {
+        .product-container {
+            font-family: sans-serif;
+
+            .product-container-body {
+                .card-body {
+                    .card-title {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+
+                    .card-price {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

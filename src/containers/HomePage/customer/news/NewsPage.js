@@ -5,6 +5,7 @@ import HomeHeader from '../../HomeHeader';
 import Sidebar from './Sidebar';
 import './NewsPage.scss';
 import NewsContent from './NewsContent';
+import HomeFooter from '../../Section/HomeFooter';
 
 class NewsPage extends Component {
 
@@ -28,6 +29,7 @@ class NewsPage extends Component {
 
 
                 </div>
+                <HomeFooter />
 
             </div>
         );
