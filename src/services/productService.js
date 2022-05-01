@@ -10,9 +10,7 @@ let getAllProduct = (productId) => {
             if (productId && productId !== 'ALL') {
                 products = await db.Product.findOne({
                     where: { id: productId }
-                    // attributes: {
-                    //     exclude: ['password']
-                    // }
+
                 })
             }
             resolve(products)

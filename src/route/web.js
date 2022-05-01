@@ -2,7 +2,10 @@ import express from "express";
 import homeController from '../controllers/homeController';
 import userController from '../controllers/userController';
 import productController from '../controllers/productController';
-import sellerController from "../controllers/sellerController"
+import sellerController from "../controllers/sellerController";
+import newsController from "../controllers/newsController";
+import brandController from "../controllers/brandController";
+
 
 let router = express.Router();
 
@@ -40,6 +43,19 @@ let initWebRouter = (app) => {
 
     //api seller 
     router.get('/api/get-top-seller', sellerController.getTopSellerHome)
+
+    //News
+    router.get('/api/get-all-news', newsController.handleGetAllNews)
+    router.post('/api/create-new-news', newsController.handleCreateNews)
+    router.put('/api/edit-news', newsController.handleEditNews)
+    router.delete('/api/delete-news', newsController.handleDeleteNews)
+
+    //
+    router.get('/api/get-all-brand', brandController.handleGetAllBrand)
+    router.post('/api/create-new-brand', brandController.handleCreateNewBrand)
+    router.put('/api/edit-brand', brandController.handleEditBrand)
+    router.delete('/api/delete-brand', brandController.handleDeleteBrand)
+
 
     router.get('/dnh', (req, res) => {
         return res.render("crud.ejs")
