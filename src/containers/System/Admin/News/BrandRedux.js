@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'react-image-lightbox/style.css';
 import Lightbox from 'react-image-lightbox';
-import './NewsRedux.scss'
+import './BrandRedux.scss'
 import * as actions from "../../../../store/actions";
 
 import { FormattedMessage } from 'react-intl';
-import { flatMap } from 'lodash';
-import TableManageNews from './TableManageNews';
 
 
 
-class NewsManage extends Component {
+class BrandManage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +17,7 @@ class NewsManage extends Component {
             previewImgURL: '',
             isOpen: false,
 
-            title: '',
+            name: '',
             description: '',
             image: ''
         }
@@ -49,21 +47,23 @@ class NewsManage extends Component {
         })
     }
 
-    handleSaveNews = () => {
+    handleSaveBrand = () => {
         let isValid = this.checkValidateInput();
-        if (isValid === false) return;
+        if (isValid === false) {
+            return;
+        }
 
-        this.props.createNewsRedux({
-            title: this.state.title,
-            description: this.state.description,
-            // image: this.state.image,
-        })
         //fire redux action
+        this.props.createNewBrand({
+            name: this.state.name,
+            description: this.state.description,
+            image: this.state.image,
+        })
     }
 
     checkValidateInput = () => {
         let isValid = true;
-        let arrCheck = ['title', 'description'];
+        let arrCheck = ['name', 'description'];
         for (let i = 0; i < arrCheck.length; i++) {
             if (!this.state[arrCheck[i]]) {
                 isValid = false;
@@ -86,22 +86,22 @@ class NewsManage extends Component {
     }
     render() {
 
-        let { title, description, image } = this.state;
+        let { name, description, image } = this.state;
         const { language } = this.props;
         return (
-            <div className='news-redux-container container-xl'>
-                <div className='title'><FormattedMessage id="manage-news.title" /></div>
+            <div className='news-redux-container'>
+                <div className='title'><FormattedMessage id="manage-news.manage-brand" /></div>
                 <div className='new-redux-body'>
                     <div className='container'>
                         <div className='row'>
                             <div className="row mb-3">
                                 <div className='col-6'>
                                     <label htmlFor="news-title" className="form-label">
-                                        <FormattedMessage id="manage-news.news-title" />
+                                        <FormattedMessage id="manage-news.brand-name" />
                                     </label>
-                                    <input type="text" className="form-control" id="news-title" placeholder="news title ..."
-                                        value={title}
-                                        onChange={(event) => this.onChangeInput(event, 'title')}
+                                    <input type="text" className="form-control" id="news-title" placeholder="name's brand"
+                                        value={name}
+                                        onChange={(event) => this.onChangeInput(event, 'name')}
                                     />
                                 </div>
                                 <div className='col-6'>
@@ -135,8 +135,8 @@ class NewsManage extends Component {
                                 ></textarea>
                             </div>
                             <div className='col-12'>
-                                <button className='btn btn-primary my-3'
-                                    onClick={() => this.handleSaveNews()}
+                                <button className='btn btn-primary'
+                                    onClick={() => this.handleSaveBrand()}
                                 >
                                     <FormattedMessage id="manage-news.save"
                                     />
@@ -146,8 +146,6 @@ class NewsManage extends Component {
                     </div>
 
                 </div>
-                <TableManageNews />
-
                 {this.state.isOpen === true &&
                     <Lightbox
                         mainSrc={this.state.previewImgURL}
@@ -172,8 +170,8 @@ const mapDispatchToProps = dispatch => {
     return {
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
         fetchAllNewsRedux: () => dispatch(actions.fetchAllNews()),
-        createNewsRedux: (data) => dispatch(actions.createNewNews(data)),
+        createNewBrand: (data) => dispatch(actions.createNewBrand(data)),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsManage);
+export default connect(mapStateToProps, mapDispatchToProps)(BrandManage);

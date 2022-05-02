@@ -29,6 +29,7 @@
             "crud": "CRUD user",
             "crud-redux": "CRUD redux",
             "product": "Sản phẩm",
+            "manager-brand": "Quản lý thương hiệu",
             "manager-product": "Quản lý sản phẩm",
             "manager-detail-product": "Quản lý chi tiết sản phẩm",
             "manager-news": "Quản lý tin tức",
@@ -73,7 +74,9 @@
         "description": "Miêu tả",
         "image": "Ảnh",
         "save": "Lưu tin tức",
-        "edit": "Lưu thay đổi"
+        "edit": "Lưu thay đổi",
+        "brand-name": "Tên thương hiệu",
+        "manage-brand": "Quản lý thương hiệu"
     },
     "homepage": {
         "new-product": "Sản phẩm mới",

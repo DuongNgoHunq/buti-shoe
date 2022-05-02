@@ -58,6 +58,9 @@ export const adminMenu = [
             {
                 name: 'menu.admin.manager-news', link: '/system/news-manager'
             },
+            {
+                name: 'menu.admin.manager-brand', link: '/system/brand-manager'
+            },
         ]
     },
 ];

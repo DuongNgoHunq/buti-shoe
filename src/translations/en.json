@@ -31,7 +31,7 @@
             "manager-product": "Manager products",
             "manager-detail-product": "Manager detail product",
             "product": "Products",
-            "manager-brand": "Brands",
+            "manager-brand": "Manage brand",
             "manager-news": "Manager news",
             "news": "News"
         }
@@ -74,7 +74,9 @@
         "description": "Description",
         "image": "Image",
         "save": "Save news",
-        "edit": "Save changes"
+        "edit": "Save changes",
+        "brand-name": "Brand's name",
+        "manage-brand": "Manage brand"
     },
     "homepage": {
         "new-product": "New products",

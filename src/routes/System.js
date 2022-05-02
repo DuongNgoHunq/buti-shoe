@@ -8,6 +8,8 @@ import Header from '../containers/Header/Header';
 import ManageDetailProduct from '../containers/System/Admin/Manage-detail-product';
 import ManageReciept from '../containers/System/Seller/ManageReciept';
 import NewsManage from '../containers/System/Admin/News/NewsRedux';
+import BrandManage from '../containers/System/Admin/News/BrandRedux';
+
 
 class System extends Component {
     render() {
@@ -28,6 +30,8 @@ class System extends Component {
                             <Route path='/system/manage-recipte' component={ManageReciept} />
 
                             <Route path='/system/news-manager' component={NewsManage} />
+                            <Route path='/system/brand-manager' component={BrandManage} />
+
 
 
                             {/*  */}
