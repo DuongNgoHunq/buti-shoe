@@ -36,7 +36,7 @@
         }
     },
     "manage-user": {
-        "title": "Thêm mới người dùng",
+        "title": "Quản lý người dùng",
         "email": "Email",
         "password": "Mật khẩu",
         "firstName": "Họ",
@@ -51,7 +51,7 @@
         "edit": "Lưu thay đổi"
     },
     "manage-product": {
-        "title": "Thêm mới sản phẩm",
+        "title": "Quản lý sản phẩm sản phẩm",
         "name": "Tên sản phẩm",
         "brand-id": "Mã nhà sản xuất",
         "description": "Mô tả",
@@ -59,10 +59,24 @@
         "price": "Giá",
         "image": "Ảnh đại diện",
         "save": "Lưu sản phẩm",
+        "edit": "Lưu thay đổi",
+        "upload-image": "Tải ảnh",
+        "create-detail-infor": "Tạo thông tin chi tiết",
+        "save-infor": "Lưu thông tin",
+        "manage-detail-infor-product": "Quản lý thông tin chi tiết sản phẩm",
+        "select-product": "Chọn sản phẩm",
+        "intro-infor": "Thông tin giới thiệu"
+    },
+    "manage-news": {
+        "title": "Quản lý tin tức",
+        "news-title": "Tiêu đề tin tức",
+        "description": "Miêu tả",
+        "image": "Ảnh",
+        "save": "Lưu tin tức",
         "edit": "Lưu thay đổi"
     },
-    "homepage":{
-        "new-product" : "Sản phẩm mới",
+    "homepage": {
+        "new-product": "Sản phẩm mới",
         "more-infor": "Xem thêm"
     }
 }

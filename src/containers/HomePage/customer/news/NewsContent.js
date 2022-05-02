@@ -100,7 +100,7 @@ class NewsContent extends Component {
                             <div className='news-content-img-lg'>
 
                             </div>
-                            <div className='news-content-description shadow'>
+                            <div className='news-content-description shadow-sm'>
                                 <div className='news-content-title'>
                                     10 đôi giày nhất định phải có trong tủ của bạn 2022
                                 </div>

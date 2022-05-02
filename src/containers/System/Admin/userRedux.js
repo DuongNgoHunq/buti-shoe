@@ -200,7 +200,7 @@ class UserRedux extends Component {
         return (
             <div className='user-redux-container'>
                 <div className="title" >
-                    Learn React-Redux voi "DNH"
+                    Quản lý người dùng
                 </div>
 
                 <div className="user-redux-body" >
@@ -303,7 +303,9 @@ class UserRedux extends Component {
                                         onChange={(event) => this.handleOnchangeImage(event)}
                                     />
                                     <label htmlFor='previewImg' className='label-upload'>
-                                        Tải ảnh <i className="fas fa-upload"></i>
+                                        <FormattedMessage id="manage-product.upload-image" />
+
+                                        <i className="fas fa-upload"></i>
                                     </label>
                                     <div className='preview-image'
                                         style={{ backgroundImage: `url(${this.state.previewImgURL})` }}

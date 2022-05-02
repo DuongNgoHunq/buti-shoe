@@ -37,7 +37,7 @@
         }
     },
     "manage-user": {
-        "title": "Add a new user",
+        "title": "Manage user",
         "email": "Email",
         "password": "Password",
         "firstName": "First name",
@@ -52,7 +52,7 @@
         "edit": "Edit user"
     },
     "manage-product": {
-        "title": "Add new product",
+        "title": "Manage product",
         "name": "Name product",
         "brand-id": "Brand ID",
         "description": "Description",
@@ -60,10 +60,24 @@
         "price": "Price",
         "image": "Image",
         "save": "Save product",
+        "edit": "Save changes",
+        "upload-image": "Upload image",
+        "create-detail-infor": "Create detail information",
+        "save-infor": "Save information",
+        "manage-detail-infor-product": "Manage detail product's information",
+        "select-product": "Select product",
+        "intro-infor": "Intro information"
+    },
+    "manage-news": {
+        "title": "Manage news",
+        "news-title": "News title",
+        "description": "Description",
+        "image": "Image",
+        "save": "Save news",
         "edit": "Save changes"
     },
-    "homepage":{
-        "new-product" : "New products",
+    "homepage": {
+        "new-product": "New products",
         "more-infor": "More infor"
     }
 }

@@ -114,11 +114,14 @@ class ManageDetailProduct extends Component {
         return (
             <div className='manage-product-container container-xl'>
                 <div className='manage-product-title title my-3'>
-                    Tao them thong tin chi tiet san pham
+                    <FormattedMessage id="manage-product.manage-detail-infor-product" />
                 </div>
                 <div className='more-infor'>
                     <div className='content-left'>
-                        <label>Chon san pham</label>
+                        <label>
+                            <FormattedMessage id="manage-product.select-product" />
+
+                        </label>
                         <Select
                             value={this.state.selectedProduct}
                             onChange={this.handleChangeSelect}
@@ -127,7 +130,10 @@ class ManageDetailProduct extends Component {
 
                     </div>
                     <div className='content-right'>
-                        <label>Thong tin  gioi thieu</label>
+                        <label>
+                            <FormattedMessage id="manage-product.intro-infor" />
+
+                        </label>
                         <textarea className='form-control' rows="4"
                             onChange={(event) => this.handleChangeDescription(event)}
                             value={this.state.description}
@@ -151,7 +157,16 @@ class ManageDetailProduct extends Component {
 
                         className={hasMarkdownData === true ? "save-content-product" : "create-content-product"}
                     >
-                        {hasMarkdownData === true ? <span>Luu thong tin </span> : <span>Tao thong tin</span>}
+                        {hasMarkdownData === true ?
+                            <span>
+                                <FormattedMessage id="manage-product.save-infor" />
+
+                            </span> :
+                            <span>
+                                <FormattedMessage id="manage-product.create-detail-infor" />
+
+                            </span>
+                        }
                     </button>
                 </div>
 

@@ -229,7 +229,9 @@ class ProductManage extends Component {
                                     />
                                     <label htmlFor='previewImg'
                                         className='lable-upload mx-2'
-                                    >Tải ảnh
+                                    >
+                                        <FormattedMessage id="manage-product.upload-image" />
+
                                         <i className='fas fa-upload mx-2'></i>
                                     </label>
                                     <div className='preview-image'

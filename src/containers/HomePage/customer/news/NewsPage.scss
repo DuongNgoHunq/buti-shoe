@@ -4,19 +4,17 @@
     .new-left {
 
         .sidebar-blog {
-            border: 1px solid #eee;
+            // border: 1px solid #eee;
             padding: 15px;
 
             .sidebar-title {
                 padding: 0 10px;
-                padding-bottom: 10px;
                 font-size: 18px;
                 border-bottom: 1px solid #eee;
             }
 
             .sidebar-child {
                 display: flex;
-                margin: 5px 0;
                 cursor: pointer;
 
                 .new-img-sm {
