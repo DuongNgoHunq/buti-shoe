@@ -4,8 +4,11 @@ import 'react-image-lightbox/style.css';
 import Lightbox from 'react-image-lightbox';
 import './BrandRedux.scss'
 import * as actions from "../../../../store/actions";
+import { LANGUAGES, CRUD_Actions, CommonUtils } from "../../../../utils";
+
 
 import { FormattedMessage } from 'react-intl';
+import TableManageBrand from './TableManageBrand';
 
 
 
@@ -17,24 +20,41 @@ class BrandManage extends Component {
             previewImgURL: '',
             isOpen: false,
 
+            brandId: '',
             name: '',
             description: '',
-            image: ''
+            image: '',
+            action: '',
+
         }
     }
     async componentDidMount() {
-        this.props.fetchAllNewsRedux();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.listBrand !== this.props.listBrand) {
+            this.setState({
+                brandId: '',
+                name: '',
+                description: '',
+                image: '',
+                action: CRUD_Actions.CREATE,
+                previewImgURL: ''
+            })
+        }
+    }
 
-    handleOnchangeImg = (event) => {
+    handleOnchangeImg = async (event) => {
         let data = event.target.files;
         let file = data[0];
         if (file) {
+            let base64 = await CommonUtils.getBase64(file);
+            console.log('Check base 64: ', base64);
+
             let objectUrl = URL.createObjectURL(file)
             this.setState({
                 previewImgURL: objectUrl,
-                image: file
+                image: base64
             })
         }
         console.log('Check url img: ', this.state.previewImgURL);
@@ -49,16 +69,24 @@ class BrandManage extends Component {
 
     handleSaveBrand = () => {
         let isValid = this.checkValidateInput();
-        if (isValid === false) {
-            return;
+        if (isValid === false) return;
+        let { action } = this.state;
+        if (action === CRUD_Actions.CREATE) {
+            //fire redux action
+            this.props.createNewBrand({
+                name: this.state.name,
+                description: this.state.description,
+                image: this.state.image,
+            })
         }
-
-        //fire redux action
-        this.props.createNewBrand({
-            name: this.state.name,
-            description: this.state.description,
-            image: this.state.image,
-        })
+        if (action === CRUD_Actions.EDIT) {
+            this.props.editBrandRedux({
+                id: this.state.brandId,
+                name: this.state.name,
+                description: this.state.description,
+                image: this.state.image,
+            })
+        }
     }
 
     checkValidateInput = () => {
@@ -84,12 +112,30 @@ class BrandManage extends Component {
         })
 
     }
+
+    handleEditBrandFromParet = (brand) => {
+        let imageBase64 = '';
+        if (brand.image) {
+            imageBase64 = new Buffer(brand.image, 'base64').toString('binary')
+        }
+        console.log('Check handel edit news from parent: ', brand);
+        this.setState({
+            brandId: brand.id,
+            name: brand.name,
+            description: brand.description,
+            image: brand.image,
+            previewImgURL: imageBase64,
+
+            action: CRUD_Actions.EDIT
+        })
+    }
+
     render() {
 
         let { name, description, image } = this.state;
         const { language } = this.props;
         return (
-            <div className='news-redux-container'>
+            <div className='news-redux-container container-xl'>
                 <div className='title'><FormattedMessage id="manage-news.manage-brand" /></div>
                 <div className='new-redux-body'>
                     <div className='container'>
@@ -134,18 +180,26 @@ class BrandManage extends Component {
 
                                 ></textarea>
                             </div>
-                            <div className='col-12'>
-                                <button className='btn btn-primary'
+                            <div className='col-12 my-3'>
+                                <button className={this.state.action === CRUD_Actions.EDIT ? 'btn btn-warning' : 'btn btn-primary'}
                                     onClick={() => this.handleSaveBrand()}
                                 >
-                                    <FormattedMessage id="manage-news.save"
-                                    />
+                                    {this.state.action === CRUD_Actions.EDIT ?
+                                        <FormattedMessage id="manage-news.edit" />
+                                        :
+                                        <FormattedMessage id="manage-news.save" />
+                                    }
                                 </button>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
+                <TableManageBrand
+                    handleEditBrandFromParet={this.handleEditBrandFromParet}
+                    action={this.state.action}
+                />
                 {this.state.isOpen === true &&
                     <Lightbox
                         mainSrc={this.state.previewImgURL}
@@ -162,6 +216,7 @@ class BrandManage extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
+        listBrand: state.admin.allBrand,
         // listProducts: state.admin.products
     };
 };
@@ -169,8 +224,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
-        fetchAllNewsRedux: () => dispatch(actions.fetchAllNews()),
         createNewBrand: (data) => dispatch(actions.createNewBrand(data)),
+        editBrandRedux: (data) => dispatch(actions.editBrand(data)),
     };
 };
 

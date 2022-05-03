@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import * as actions from "../../../../store/actions";
 import 'react-markdown-editor-lite/lib/index.css';
-// const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 class TableManageNews extends Component {
 
@@ -26,19 +25,25 @@ class TableManageNews extends Component {
         }
     }
 
-
+    handleDeleteNews = (news) => {
+        console.log('check news before delete: ', news.id);
+        this.props.deleteNewsRedux(news.id);
+    }
+    handleEditNews = (news) => {
+        this.props.handleEditNewsFromParet(news)
+    }
 
     render() {
         console.log('Check state: ', this.state);
         let arrNews = this.state.newsRedux;
         return (
-            <>
-                <table id="tablemanageuser">
+            <div>
+                <table id="tablemanageuser" className=''>
                     <tbody>
-                        <tr className='row'>
-                            <th className='col-4'>News's title</th>
-                            <th className='col-6'>Description</th>
-                            <th className='col-2'>Action</th>
+                        <tr>
+                            <th>News's title</th>
+                            <th>Description</th>
+                            <th>Action</th>
                         </tr>
                         {arrNews && arrNews.length > 0 &&
 
@@ -50,12 +55,15 @@ class TableManageNews extends Component {
                                         <td>
 
                                             <button className='btn-edit'
+                                                onClick={() => this.handleEditNews(item)}
 
                                             >
                                                 <i className="fas fa-pencil-alt"></i>
                                             </button>
 
                                             <button className='btn-delete'
+                                                onClick={() => this.handleDeleteNews(item)}
+
                                             >
                                                 <i className="fas fa-trash"></i>
                                             </button>
@@ -67,7 +75,7 @@ class TableManageNews extends Component {
                         }
                     </tbody>
                 </table>
-            </>
+            </div>
         );
     }
 }
@@ -81,7 +89,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllNewsRedux: () => dispatch(actions.fetchAllNews()),
-
+        deleteNewsRedux: (id) => dispatch(actions.deleteANews(id)),
     };
 };
 

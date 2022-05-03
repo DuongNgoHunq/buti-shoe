@@ -4,10 +4,12 @@ import 'react-image-lightbox/style.css';
 import Lightbox from 'react-image-lightbox';
 import './NewsRedux.scss'
 import * as actions from "../../../../store/actions";
+import { LANGUAGES, CRUD_Actions, CommonUtils } from "../../../../utils";
 
 import { FormattedMessage } from 'react-intl';
 import { flatMap } from 'lodash';
 import TableManageNews from './TableManageNews';
+import { createNewUser } from '../../../../store/actions';
 
 
 
@@ -19,25 +21,41 @@ class NewsManage extends Component {
             previewImgURL: '',
             isOpen: false,
 
+            newsId: '',
             title: '',
             description: '',
-            image: ''
+            image: '',
+            action: '',
         }
     }
     async componentDidMount() {
-        this.props.fetchAllNewsRedux();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.news !== this.props.news) {
+            this.setState({
+                newsId: '',
+                title: '',
+                description: '',
+                image: '',
+                action: CRUD_Actions.CREATE,
+                previewImgURL: ''
 
-    handleOnchangeImg = (event) => {
+            })
+        }
+    }
+
+    handleOnchangeImg = async (event) => {
         let data = event.target.files;
         let file = data[0];
         if (file) {
+            let base64 = await CommonUtils.getBase64(file);
             let objectUrl = URL.createObjectURL(file)
             this.setState({
                 previewImgURL: objectUrl,
-                image: file
+                image: base64
             })
+            console.log('Check imge: ', this.state.image);
         }
         console.log('Check url img: ', this.state.previewImgURL);
     }
@@ -52,12 +70,24 @@ class NewsManage extends Component {
     handleSaveNews = () => {
         let isValid = this.checkValidateInput();
         if (isValid === false) return;
+        let { action } = this.state;
 
-        this.props.createNewsRedux({
-            title: this.state.title,
-            description: this.state.description,
-            // image: this.state.image,
-        })
+        if (action === CRUD_Actions.CREATE) {
+            this.props.createNewsRedux({
+                title: this.state.title,
+                description: this.state.description,
+                image: this.state.image,
+            })
+        }
+        if (action === CRUD_Actions.EDIT) {
+            this.props.editNewsRedux({
+                id: this.state.newsId,
+                title: this.state.title,
+                description: this.state.description,
+                image: this.state.image,
+            })
+        }
+
         //fire redux action
     }
 
@@ -83,6 +113,22 @@ class NewsManage extends Component {
             ...copyState
         })
 
+    }
+
+    handleEditNewsFromParet = (news) => {
+        let imageBase64 = '';
+        if (news.image) {
+            imageBase64 = new Buffer(news.image, 'base64').toString('binary')
+        }
+        this.setState({
+            newsId: news.id,
+            title: news.title,
+            description: news.description,
+            image: news.image,
+            previewImgURL: imageBase64,
+
+            action: CRUD_Actions.EDIT
+        })
     }
     render() {
 
@@ -134,19 +180,25 @@ class NewsManage extends Component {
 
                                 ></textarea>
                             </div>
-                            <div className='col-12'>
-                                <button className='btn btn-primary my-3'
+                            <div className='col-12 my-3'>
+                                <button className={this.state.action === CRUD_Actions.EDIT ? 'btn btn-warning' : 'btn btn-primary'}
                                     onClick={() => this.handleSaveNews()}
                                 >
-                                    <FormattedMessage id="manage-news.save"
-                                    />
+                                    {this.state.action === CRUD_Actions.EDIT ?
+                                        <FormattedMessage id="manage-news.edit" />
+                                        :
+                                        <FormattedMessage id="manage-news.save" />
+                                    }
                                 </button>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <TableManageNews />
+                <TableManageNews
+                    handleEditNewsFromParet={this.handleEditNewsFromParet}
+                    action={this.state.action}
+                />
 
                 {this.state.isOpen === true &&
                     <Lightbox
@@ -164,6 +216,8 @@ class NewsManage extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
+        news: state.admin.allNews
+
         // listProducts: state.admin.products
     };
 };
@@ -171,8 +225,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
-        fetchAllNewsRedux: () => dispatch(actions.fetchAllNews()),
         createNewsRedux: (data) => dispatch(actions.createNewNews(data)),
+        editNewsRedux: (data) => dispatch(actions.editNews(data))
     };
 };
 

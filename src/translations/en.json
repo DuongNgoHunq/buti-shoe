@@ -33,7 +33,7 @@
             "product": "Products",
             "manager-brand": "Manage brand",
             "manager-news": "Manager news",
-            "news": "News"
+            "news": "News & brand"
         }
     },
     "manage-user": {
@@ -76,7 +76,8 @@
         "save": "Save news",
         "edit": "Save changes",
         "brand-name": "Brand's name",
-        "manage-brand": "Manage brand"
+        "manage-brand": "Manage brand ",
+        "news": "News & brand"
     },
     "homepage": {
         "new-product": "New products",

@@ -12,6 +12,7 @@ const initialState = {
     newProducts: [],
     cart: [],
     allNews: [],
+    allBrand: [],
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -120,6 +121,20 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
+
+        case actionTypes.GET_ALL_BRAND_SUCCESS:
+            state.allBrand = action.data;
+            console.log('Fire action get all news');
+            return {
+                ...state
+            }
+
+        case actionTypes.GET_ALL_BRAND_FAILDE:
+            state.allBrand = [];
+            return {
+                ...state
+            }
+
 
         default:
             return state;
