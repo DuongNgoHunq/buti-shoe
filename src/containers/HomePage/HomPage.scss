@@ -40,6 +40,12 @@
 
         background-color: white;
         margin-bottom: -100px;
+
+        .new-title {
+            color: #5e5959;
+            width: 90%;
+        }
+
         // margin-top : -149px;
     }
 
@@ -75,15 +81,21 @@
                 }
 
                 &.section-outstand-brand {
-                    border: 1px solid grey;
 
                     background-image: url('../../assets/images/outstand-brand/logo-adidas.jpg');
+                    border: 1px solid grey;
+                    background: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
 
                     &:hover {
                         box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.19);
                         transition: 1s;
                         transform: translateY(-8px);
                     }
+
+
+
                 }
 
                 &.section-outstand-product {

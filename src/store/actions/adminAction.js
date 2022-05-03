@@ -213,7 +213,7 @@ export const fetchTopSellerStart = () => {
     return async (dispatch, getState) => {
         try {
             // let res = await getAllUser("ALL");
-            let res = await getTopSellerHomeService(3);
+            let res = await getTopSellerHomeService(5);
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_SELLER_SUCCESS,

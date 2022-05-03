@@ -206,6 +206,7 @@ class NewsManage extends Component {
                         onCloseRequest={() => this.setState({ isOpen: false })}
                     />
                 }
+                <div className='news-footer'> </div>
 
             </div>
         )

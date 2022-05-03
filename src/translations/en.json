@@ -81,6 +81,8 @@
     },
     "homepage": {
         "new-product": "New products",
+        "news": "News",
+        "brand": "Outstanding brand",
         "more-infor": "More infor"
     }
 }

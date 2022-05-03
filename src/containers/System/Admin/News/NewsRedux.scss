@@ -1,21 +1,29 @@
-.preview-image-container {
+.news-redux-container {
+    .preview-image-container {
 
-    .lable-upload {
-        padding: 5px;
-        border-radius: 3px;
-        background: #ddd;
-        cursor: pointer;
+        .lable-upload {
+            padding: 5px;
+            border-radius: 3px;
+            background: #ddd;
+            cursor: pointer;
 
-        &:hover {
-            opacity: 0.8;
+            &:hover {
+                opacity: 0.8;
+            }
         }
+
+        .preview-image {
+            border: 1px solid #ddd;
+            width: 100%;
+            height: 50px;
+            background: center center no-repeat;
+            background-size: contain;
+        }
+
+
     }
 
-    .preview-image {
-        border: 1px solid #ddd;
-        width: 100%;
-        height: 50px;
-        background: center center no-repeat;
-        background-size: contain;
+    .news-footer {
+        height: 100px;
     }
 }

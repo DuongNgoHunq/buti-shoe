@@ -31,8 +31,6 @@ class OustandSeller extends Component {
 
         let { arrSellers } = this.state;
         let { language } = this.props;
-
-        arrSellers = arrSellers.concat(arrSellers).concat(arrSellers)
         console.log('Check array seller: ', arrSellers);
         return (
             <div className='container-fluid section-outstand-seller'>
@@ -59,12 +57,12 @@ class OustandSeller extends Component {
                                         console.log('Check image url: ', item);
                                         return (
                                             <div className="section-child" key={index}>
-                                                <div className="bg-image section-outstand-seller"
+                                                <div className="bg-image section-outstand-seller "
                                                     style={{ backgroundImage: `url(${imageBase64})` }}
                                                 />
-                                                <div>
-                                                    <p>{language === LANGUAGES.VI ? nameVi : nameEn} </p>
-                                                    <p>Buti - 1</p>
+                                                <div >
+                                                    <p className='fw-bold'>{language === LANGUAGES.VI ? nameVi : nameEn} </p>
+                                                    <div className='fw-bold'>Cửa hàng {index + 1}</div>
                                                 </div>
 
                                             </div>
