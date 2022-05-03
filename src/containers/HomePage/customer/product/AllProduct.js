@@ -14,15 +14,15 @@ class AllProduct extends Component {
         return (
             <div>
                 <HomeHeader isShowSlider={false} />
-                <div className='new-container flex-md-row-reverse container-xl'>
-                    <div className='row'>
-
-                        <div className='col-xl-3 col-md-3 col-sm-12 new-left justify-content-sm-center'>
-                            <SidebarProduct />
-                        </div>
+                <div className='product-container container-xl'>
+                    <div className='flex-row-reverse row'>
                         <div className='col-xl-9 col-md-9 col-sm-12 new-right justify-content-sm-center'>
                             <ProductContent />
                         </div>
+                        <div className='col-xl-3 col-md-3 col-sm-12 new-left justify-content-sm-center'>
+                            <SidebarProduct />
+                        </div>
+
                     </div>
                 </div>
                 <HomeFooter />

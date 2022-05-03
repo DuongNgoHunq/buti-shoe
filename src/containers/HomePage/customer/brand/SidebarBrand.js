@@ -3,59 +3,68 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import * as actions from '../../../../store/actions';
+import { LANGUAGES } from '../../../../utils/constant';
 
-class Sidebar extends Component {
+
+
+class SidebarBrand extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
-            arrNews: [],
+            arrBrand: [],
         }
     }
     componentDidMount() {
-        this.props.getAllNewsRedux();
+        this.props.brandListRedux();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.newsList !== this.props.newsList) {
+        if (prevProps.brandList !== this.props.brandList) {
             this.setState({
-                arrNews: this.props.newsList
+                arrBrand: this.props.brandList
             })
         }
     }
-    handleViewDetailProduct = (news) => {
-        this.props.history.push(`/detail-news/${news.id}`)
-
-    }
-
     render() {
-        let arrNews = this.state.arrNews;
+
+        let arrBrand = this.state.arrBrand;
         let { language } = this.props;
+
         return (
             <div className='sidebar-blog'>
                 <h3 className='sidebar-title'>
-                    Bài viết mới nhất
+                    Thương hiệu nổi bật 2022
                 </h3>
-                {arrNews && arrNews.length > 0 &&
-                    arrNews.map((item, index) => {
+                {
+                    arrBrand && arrBrand.length > 0 &&
+                    arrBrand.map((item, index) => {
+
+                        let nameVi = `Thương hiệu nổi bật ${item.name}`;
+                        let nameEn = `Outstanding brand ${item.name}`;
+
                         let imageBase64 = '';
                         if (item.image) {
                             imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                         }
+
                         return (
-                            <div className='side-bar-content'>
-                                <div className='sidebar-child'>
-                                    <div className='new-img-sm'
+                            <div className='side-bar-content' key={index}>
+                                <div className='sidebar-brand-child'>
+                                    <div className='brand-img-sm'
                                         style={{ backgroundImage: `url(${imageBase64})` }}
+
                                     ></div>
-                                    <div className='sidebar-text'>
+                                    <div className='sidebar-brand-text'>
                                         <p className='description'>
-                                            10 đôi giày nhất định phải có trong tủ của bạn 2022
+                                            {language === LANGUAGES.VI ? nameVi : nameEn}
                                         </p>
                                         <p className='date'>
                                             2020-11-18
                                         </p>
                                     </div>
                                 </div>
+
                             </div>
                         )
                     })
@@ -69,14 +78,18 @@ class Sidebar extends Component {
 
 const mapStateToProps = state => {
     return {
-        newsList: state.admin.allNews
+        isLoggedIn: state.user.isLoggedIn,
+
+        brandList: state.admin.allBrand,
+        language: state.app.language,
+
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getAllNewsRedux: () => dispatch(actions.fetchAllNews())
+        brandListRedux: () => dispatch(actions.fetchAllBrand())
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarBrand));

@@ -10,6 +10,7 @@
             .sidebar-title {
                 padding: 0 10px;
                 font-size: 18px;
+                padding-bottom: 10px;
                 border-bottom: 1px solid #eee;
             }
 
@@ -18,7 +19,6 @@
                 cursor: pointer;
 
                 .new-img-sm {
-                    background-image: url('../../../../assets/new-product/nike-1.jpg');
                     background-position: center center;
                     background-size: cover;
                     width: 59px;
@@ -42,7 +42,6 @@
 
                 .date {
                     font-size: 13px;
-                    // padding: ;
                 }
 
                 .sidebar-text {
@@ -74,7 +73,6 @@
 
                     .news-content-img-lg {
                         background-color: rgb(221, 209, 209);
-                        background-image: url('../../../../assets/new-product/nike-do.jpg');
                         background-position: center center;
                         background-size: cover;
                         width: 100%;

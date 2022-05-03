@@ -32,8 +32,6 @@ class System extends Component {
                             <Route path='/system/news-manager' component={NewsManage} />
                             <Route path='/system/brand-manager' component={BrandManage} />
 
-
-
                             {/*  */}
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>

@@ -17,6 +17,7 @@ import AllProduct from './HomePage/customer/product/AllProduct';
 import AllBrand from './HomePage/customer/brand/AllBrand';
 import NewsPage from './HomePage/customer/news/NewsPage';
 import Contact from './HomePage/customer/news/Contact';
+import CartPage from './HomePage/customer/cart/CartPage';
 
 class App extends Component {
 
@@ -57,6 +58,8 @@ class App extends Component {
                                     <Route path={path.BRAND} component={AllBrand} />
                                     <Route path={path.NEWSPAGE} component={NewsPage} />
                                     <Route path={path.CONTACT} component={Contact} />
+                                    <Route path={path.CART} component={CartPage} />
+
 
 
 

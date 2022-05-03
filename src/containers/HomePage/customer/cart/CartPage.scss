@@ -1,0 +1,29 @@
+.cart-container {
+    button {
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+
+        &:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+    }
+
+    .cartBuy {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 16px 3% 0 0;
+
+        button {
+            padding: 6px 12px;
+            margin-right: 10px;
+        }
+
+        .pricesTotal {
+            color: rgb(192, 36, 36);
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+    }
+}

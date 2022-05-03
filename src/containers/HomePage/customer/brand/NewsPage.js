@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import HomeHeader from '../../HomeHeader';
-import Sidebar from './Sidebar';
+import SidebarNews from './SidebarNews';
 import './NewsPage.scss';
 import NewsContent from './NewsContent';
 
@@ -17,7 +17,7 @@ class NewsPage extends Component {
                     <div className='row'>
 
                         <div className='col-xl-3 col-md-12 col-sm-12 new-left justify-content-sm-center'>
-                            <Sidebar />
+                            <SidebarNews />
                         </div>
                         <div className='col-xl-9 col-md-12 col-sm-12 new-right justify-content-sm-center'>
                             <NewsContent />

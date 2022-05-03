@@ -9,7 +9,8 @@ export const path = {
     ALL_PRODUCT: '/product',
     BRAND: '/brand',
     NEWSPAGE: '/news-page',
-    CONTACT: '/contact'
+    CONTACT: '/contact',
+    CART: '/cart'
 
 };
 

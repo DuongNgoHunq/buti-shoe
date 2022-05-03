@@ -25,9 +25,6 @@ class NewsPage extends Component {
 
                         </div>
                     </div>
-
-
-
                 </div>
                 <HomeFooter />
 

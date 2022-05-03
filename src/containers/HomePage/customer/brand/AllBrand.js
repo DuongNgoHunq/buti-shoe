@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import HomeHeader from '../../HomeHeader';
-import SidebarBrand from './Sidebar';
+import SidebarBrand from './SidebarBrand';
 import './AllBrand.scss';
 import BrandContent from './BrandContent';
 import HomeFooter from '../../Section/HomeFooter';

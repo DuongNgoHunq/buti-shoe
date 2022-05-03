@@ -1,6 +1,7 @@
-.new-container {
+.product-container {
     .new-left {
         border: 1px solid #ddd;
+        margin-bottom: 714px;
 
         .sidebar-product-blog {
 
@@ -39,6 +40,11 @@
 
             .product-container-body {
                 .card-body {
+                    .product-child {
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+
                     .card-title {
                         font-size: 14px;
                         font-weight: 400;
