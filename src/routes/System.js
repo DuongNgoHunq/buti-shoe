@@ -9,6 +9,8 @@ import ManageDetailProduct from '../containers/System/Admin/Manage-detail-produc
 import ManageReciept from '../containers/System/Seller/ManageReciept';
 import NewsManage from '../containers/System/Admin/News/NewsRedux';
 import BrandManage from '../containers/System/Admin/News/BrandRedux';
+import ManageDetailNews from '../containers/System/Admin/News/ManageDetailNews';
+import ManageDetailBrand from '../containers/System/Admin/News/ManageDetailBrand';
 
 
 class System extends Component {
@@ -30,7 +32,11 @@ class System extends Component {
                             <Route path='/system/manage-recipte' component={ManageReciept} />
 
                             <Route path='/system/news-manager' component={NewsManage} />
+                            <Route path='/system/news-detail' component={ManageDetailNews} />
+
                             <Route path='/system/brand-manager' component={BrandManage} />
+                            <Route path='/system/brand-detail' component={ManageDetailBrand} />
+
 
                             {/*  */}
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />

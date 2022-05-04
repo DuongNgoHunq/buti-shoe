@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from "../../../../store/actions";
 import 'react-markdown-editor-lite/lib/index.css';
 
+
 class TableManageNews extends Component {
 
     constructor(props) {
@@ -38,7 +39,7 @@ class TableManageNews extends Component {
         let arrNews = this.state.newsRedux;
         return (
             <div>
-                <table id="tablemanageuser" className=''>
+                <table id="tablemanageuser" className='my-3'>
                     <tbody>
                         <tr>
                             <th>News's title</th>
@@ -75,6 +76,8 @@ class TableManageNews extends Component {
                         }
                     </tbody>
                 </table>
+
+
             </div>
         );
     }

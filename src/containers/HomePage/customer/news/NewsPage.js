@@ -22,7 +22,6 @@ class NewsPage extends Component {
                         </div>
                         <div className='col-xl-9 col-md-12 col-sm-12 new-right justify-content-sm-center'>
                             <NewsContent />
-
                         </div>
                     </div>
                 </div>

@@ -23,6 +23,16 @@ const editNewsService = (inputData) => {
     return axios.put('/api/edit-news', inputData)
 }
 
+const getDetailNews = (id) => {
+    return axios.get(`/api/get-all-news?id=${id}`)
+
+}
+
+const saveDetailNews = (inputData) => {
+    console.log('Check input data from service: ', inputData);
+    return axios.post('/api/save-detail-news', inputData)
+}
+
 //brand
 
 const getAllBrand = (inputId) => {
@@ -48,10 +58,17 @@ const editBrandService = (inputData) => {
 
     return axios.put('/api/edit-brand', inputData)
 }
+
+const saveDetailBrand = (inputData) => {
+    console.log('Check input data from service: ', inputData);
+    return axios.post('/api/save-detail-brand', inputData)
+}
+
 export {
     getAllNews,
     createNewsService, createNewBrandService,
     getAllBrand, deleteNewsService,
     deleteBrandService, editNewsService,
-    editBrandService
+    editBrandService, getDetailNews,
+    saveDetailNews, saveDetailBrand
 }

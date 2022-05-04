@@ -1,0 +1,11 @@
+.manage-news-container {
+    .save-content-news {
+        cursor: pointer;
+        border-radius: 3px;
+        outline: none;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

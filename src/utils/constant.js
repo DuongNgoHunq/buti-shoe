@@ -6,6 +6,8 @@ export const path = {
     SYSTEM: '/system',
     NEWS: '/news',
     DETAIL_PRODUCT: '/detail-product/:id',
+    DETAIL_NEWS: '/detail-news/:id',
+    DETAIL_BRAND: '/detail-brand/:id',
     ALL_PRODUCT: '/product',
     BRAND: '/brand',
     NEWSPAGE: '/news-page',

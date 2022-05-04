@@ -31,7 +31,6 @@ class OustandSeller extends Component {
 
         let { arrSellers } = this.state;
         let { language } = this.props;
-        console.log('Check array seller: ', arrSellers);
         return (
             <div className='container-fluid section-outstand-seller'>
                 <div className='section-share  container-xl '>
@@ -49,12 +48,10 @@ class OustandSeller extends Component {
                                         let imageBase64 = '';
                                         if (item.image) {
                                             imageBase64 = new Buffer(item.image, 'base64').toString('binary')
-                                            console.log('Check seller img: ', imageBase64);
                                         }
 
                                         let nameVi = `Nhân viên xuất sắc - ${item.firstName} ${item.lastName}`;
                                         let nameEn = `excellent staff - ${item.firstName} ${item.lastName}`
-                                        console.log('Check image url: ', item);
                                         return (
                                             <div className="section-child" key={index}>
                                                 <div className="bg-image section-outstand-seller "

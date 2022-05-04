@@ -27,10 +27,14 @@ class News extends Component {
     }
 
     gotoNews = () => {
-        console.log('Check click');
         if (this.props.history) {
             this.props.history.push(`/news-page`)
         }
+    }
+    //
+    handleViewDetailNews = (news) => {
+        this.props.history.push(`/detail-news/${news.id}`)
+
     }
 
     render() {
@@ -66,7 +70,10 @@ class News extends Component {
                                             imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                                         }
                                         return (
-                                            <div className="section-child section-news" key={index}>
+                                            <div className="section-child section-news" key={index}
+                                                onClick={() => this.handleViewDetailNews(item)}
+
+                                            >
                                                 <div className="bg-image section-news"
                                                     style={{ backgroundImage: `url(${imageBase64})` }}
                                                 />

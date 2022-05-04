@@ -18,6 +18,7 @@ import AllBrand from './HomePage/customer/brand/AllBrand';
 import NewsPage from './HomePage/customer/news/NewsPage';
 import Contact from './HomePage/customer/news/Contact';
 import CartPage from './HomePage/customer/cart/CartPage';
+import DetailNews from './HomePage/customer/news/DetailNews';
 
 class App extends Component {
 
@@ -59,6 +60,10 @@ class App extends Component {
                                     <Route path={path.NEWSPAGE} component={NewsPage} />
                                     <Route path={path.CONTACT} component={Contact} />
                                     <Route path={path.CART} component={CartPage} />
+                                    {/* <Route path={path.DETAIL_NEWS} component={DetailNews} /> */}
+                                    {/* <Route path={path.DETAIL_BRAND} component={DetailBrand} /> */}
+
+
 
 
 

@@ -12,25 +12,15 @@ export const adminMenu = [
             {
 
                 name: 'menu.admin.manager-recipet', link: '/system/manage-recipte'
-            },
-            {
-
-                name: 'menu.admin.ship', link: '/system/ship'
             }
         ]
     },
     { //Quan ly nguoi dung
 
         name: 'menu.admin.manager-user', menus: [
-            {
-                name: 'menu.admin.crud', link: '/system/user-manager'
-            },
+
             {
                 name: 'menu.admin.crud-redux', link: '/system/user-redux'
-            },
-            {
-                name: 'menu.admin.manager-admin', link: '/system/user-admin'
-
             },
             {
                 name: 'menu.admin.manager-seller', link: '/system/user-seller'
@@ -60,6 +50,12 @@ export const adminMenu = [
             },
             {
                 name: 'menu.admin.manager-brand', link: '/system/brand-manager'
+            },
+            {
+                name: 'menu.admin.manager-news-detail', link: '/system/news-detail'
+            },
+            {
+                name: 'menu.admin.manager-brand-detail', link: '/system/brand-detail'
             },
         ]
     },

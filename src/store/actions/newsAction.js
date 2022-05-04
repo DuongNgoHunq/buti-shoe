@@ -7,7 +7,9 @@ import {
     getAllBrand, deleteNewsService,
     deleteBrandService,
     editNewsService,
-    editBrandService
+    editBrandService,
+    saveDetailNews,
+    saveDetailBrand
 
 } from '../../services/newsService';
 
@@ -137,6 +139,37 @@ export const editNewsFailed = () => ({
     type: actionTypes.EDIT_NEWS_FAILED
 })
 
+//Save detail news
+export const saveNewsInfor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveDetailNews(data);
+            console.log('check data from action: ', data);
+            if (res && res.errCode === 0) {
+                toast.success("Save news's detail infor   success !")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_NEWS_SUCCESS,
+                });
+            } else {
+                toast.error("Save news's detail infor error !")
+
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_NEWS_FAILED
+
+                });
+            }
+        } catch (e) {
+            toast.error("Save news's detail infor error !")
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_NEWS_FAILED
+
+            });
+            console.log('SaveinforNewsFailed error', e);
+        }
+    }
+}
+
+
 //fetch all brand
 
 export const fetchAllBrand = () => {
@@ -259,3 +292,34 @@ export const editBrandSuccess = () => ({
 export const editBrandFailed = () => ({
     type: actionTypes.EDIT_BRAND_FAILED
 })
+
+
+//Save detail news
+export const saveBrandInfor = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveDetailBrand(data);
+            console.log('check data from action: ', data);
+            if (res && res.errCode === 0) {
+                toast.success("Save brand's detail infor   success !")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_BRAND_SUCCESS,
+                });
+            } else {
+                toast.error("Save brand's detail infor error !")
+
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_BRAND_FAILED
+
+                });
+            }
+        } catch (e) {
+            toast.error("Save brand's detail infor error !")
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_BRAND_FAILED
+
+            });
+            console.log('SaveinforNewsFailed error', e);
+        }
+    }
+}

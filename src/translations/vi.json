@@ -33,6 +33,8 @@
             "manager-product": "Quản lý sản phẩm",
             "manager-detail-product": "Quản lý chi tiết sản phẩm",
             "manager-news": "Quản lý tin tức",
+            "manager-news-detail": "Chi tiết tin tức",
+            "manager-brand-detail": "Chi tiết thương hiệu",
             "news": "Tin tức & thương hiệu"
         }
     },

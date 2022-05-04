@@ -45,7 +45,6 @@ class NewProducts extends Component {
         let settings = this.props.settings;
         let arrNewProduct = this.state.arrNewProduct;
         let { language } = this.props;
-        console.log('Check arr new product: ', arrNewProduct);
         return (
             <div className='section-share container-xl'>
                 <div className='section-container'>

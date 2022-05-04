@@ -33,6 +33,8 @@
             "product": "Products",
             "manager-brand": "Manage brand",
             "manager-news": "Manager news",
+            "manager-news-detail": "Manager news detail",
+            "manager-brand-detail": "Manager brand detail",
             "news": "News & brand"
         }
     },
