@@ -58,7 +58,7 @@ let updateBrand = (data) => {
                 raw: false
             })
             if (brand) {
-                brand.title = data.title;
+                brand.name = data.name;
                 brand.description = data.description;
                 brand.image = data.image;
                 await brand.save();
@@ -103,7 +103,36 @@ let deleteBrand = (id) => {
         }
     })
 }
+let saveDetailInforBrand = (inputData) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            console.log('Check data from serVer: ', inputData);
+            if (!inputData.brandId || !inputData.contentHTML || !inputData.contentMarkdown) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter!'
+                })
+            }
+            else {
+                await db.BrandMarkdown.create({
+                    contentHTML: inputData.contentHTML,
+                    contentMarkdown: inputData.contentMarkdown,
+                    description: inputData.description,
+                    brandId: inputData.brandId
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: `Save news's infor success!`
+                })
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
 module.exports = {
     getAllBrand, createNewBrand,
-    updateBrand, deleteBrand
+    updateBrand, deleteBrand,
+    saveDetailInforBrand
 }

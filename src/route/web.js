@@ -47,12 +47,18 @@ let initWebRouter = (app) => {
     //News
     router.get('/api/get-all-news', newsController.handleGetAllNews)
     router.post('/api/create-new-news', newsController.handleCreateNews)
+    router.post('/api/save-detail-news', newsController.handleSaveDetailNews)
+
     router.put('/api/edit-news', newsController.handleEditNews)
     router.delete('/api/delete-news', newsController.handleDeleteNews)
+    // router.get('/api/get-detail-news', newsController.handleGetDetailNews)
 
-    //
+
+    //brand
     router.get('/api/get-all-brand', brandController.handleGetAllBrand)
     router.post('/api/create-new-brand', brandController.handleCreateNewBrand)
+    router.post('/api/save-detail-brand', brandController.handleSaveDetailBrand)
+
     router.put('/api/edit-brand', brandController.handleEditBrand)
     router.delete('/api/delete-brand', brandController.handleDeleteBrand)
 

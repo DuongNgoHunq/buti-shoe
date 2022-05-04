@@ -1,4 +1,5 @@
 
+import { resolve } from "path";
 import db from "../models/index";
 
 let getAllNews = (newsId) => {
@@ -109,7 +110,36 @@ let deleteNews = (id) => {
         }
     })
 }
+
+let saveDetailInforNews = (inputData) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            console.log('Check data from serVer: ', inputData);
+            if (!inputData.newsId || !inputData.contentHTML || !inputData.contentMarkdown) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter!'
+                })
+            }
+            else {
+                await db.NewsMarkdown.create({
+                    contentHTML: inputData.contentHTML,
+                    contentMarkdown: inputData.contentMarkdown,
+                    description: inputData.description,
+                    newsId: inputData.newsId
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: `Save news's infor success!`
+                })
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 module.exports = {
     getAllNews, createNewNews,
-    updateNewsData, deleteNews
+    updateNewsData, deleteNews,
+    saveDetailInforNews
 }

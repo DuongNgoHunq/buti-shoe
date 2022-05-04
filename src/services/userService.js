@@ -25,7 +25,7 @@ let handleUserLogin = (email, password) => {
 
                 let user = await db.User.findOne({
                     where: { email: email },
-                    attributes: ['email', 'roleId', 'password'], // define columns that you want to show
+                    attributes: ['email', 'roleId', 'password', 'firstName', 'lastName'], // define columns that you want to show
                     raw: true
                 })
                 if (user) {
