@@ -14,16 +14,16 @@ class AllBrand extends Component {
         return (
             <div>
                 <HomeHeader isShowSlider={false} />
-                <div className='brand-container flex-md-row-reverse container-xl'>
-                    <div className='row'>
-
-                        <div className='col-xl-3 col-md-12 col-sm-12 brand-left justify-content-sm-center'>
-                            <SidebarBrand />
-                        </div>
+                <div className='brand-container container-xl'>
+                    <div className='row flex-row-reverse'>
                         <div className='col-xl-9 col-md-12 col-sm-12 brand-right justify-content-sm-center'>
                             <BrandContent />
 
                         </div>
+                        <div className='col-xl-3 col-md-12 col-sm-12 brand-left justify-content-sm-center'>
+                            <SidebarBrand />
+                        </div>
+
                     </div>
                 </div>
                 <HomeFooter />

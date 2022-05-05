@@ -26,6 +26,18 @@ class DetailProduct extends Component {
 
         }
     }
+    async componentDidUpdate(prevProps) {
+        console.log('check param: ', prevProps.match.params.id, this.props.match.params.id);
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            let id = this.props.match.params.id;
+            let res = await getdetailInforProduct(id);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    detailProduct: res.data
+                })
+            }
+        }
+    }
     render() {
 
         let { detailProduct } = this.state;

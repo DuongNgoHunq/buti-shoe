@@ -22,7 +22,7 @@ class Sidebar extends Component {
             })
         }
     }
-    handleViewDetailProduct = (news) => {
+    handleViewDetailNews = (news) => {
         this.props.history.push(`/detail-news/${news.id}`)
 
     }
@@ -42,14 +42,17 @@ class Sidebar extends Component {
                             imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                         }
                         return (
-                            <div className='side-bar-content'>
+                            <div className='side-bar-content'
+                                onClick={() => this.handleViewDetailNews(item)}
+
+                            >
                                 <div className='sidebar-child'>
                                     <div className='new-img-sm'
                                         style={{ backgroundImage: `url(${imageBase64})` }}
                                     ></div>
                                     <div className='sidebar-text'>
                                         <p className='description'>
-                                            10 đôi giày nhất định phải có trong tủ của bạn 2022
+                                            {item.title}
                                         </p>
                                         <p className='date'>
                                             2020-11-18

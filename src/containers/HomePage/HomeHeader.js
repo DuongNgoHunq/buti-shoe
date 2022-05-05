@@ -5,9 +5,48 @@ import { LANGUAGES } from '../../utils/constant';
 import { changeLanguageApp } from '../../store/actions/appActions';
 import Slider from "react-slick";
 import { withRouter } from 'react-router';
+import * as actions from "../../store/actions";
+
 import './HomeHeader.scss';
+import Select from 'react-select';
+
 
 class HomeHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listAllProduct: [],
+            selectedProduct: '',
+        }
+    }
+
+    componentDidMount() {
+        this.props.fetchAllProductRedux();
+    }
+
+
+    buildDataInputSelect = (inputData) => {
+        let result = [];
+        // let { language } = this.props;
+        if (inputData && inputData.length > 0) {
+            inputData.map((item, index) => {
+                let object = {};
+                object.label = item.name;
+                object.value = item.id;
+                result.push(object)
+            })
+        }
+        return result;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.products !== this.props.products) {
+            let dataSelect = this.buildDataInputSelect(this.props.products)
+            this.setState({
+                listAllProduct: dataSelect
+            })
+        }
+    }
 
     changeLanguage = (language) => {
         //fire redux event: actions
@@ -40,6 +79,7 @@ class HomeHeader extends Component {
         }
     }
     render() {
+        console.log('Check state from header: ', this.state);
         let language = this.props.language;
         const settings = {
             infinite: true,
@@ -97,7 +137,12 @@ class HomeHeader extends Component {
 
                             </form>
                             <div className='right-content'>
-                                <input className="form-control me-2" type="search" placeholder="Search ..." aria-label="Search" />
+                                <Select className="form-select-header" placeholder="Search ..." id="select-header"
+                                    value={this.state.selectedProduct}
+                                    onChange={this.handleChangeSelect}
+                                    options={this.state.listAllProduct}
+                                />
+                                {/* <input type="search" placeholder="Search ..." aria-label="Search" /> */}
                                 <i className="fas fa-search "></i>
 
                                 <i className="fas fa-user"></i>
@@ -163,13 +208,15 @@ const mapStateToProps = state => {
         isLoggedIn: state.user.isLoggedIn,
         userInfo: state.user.userInfo,
         language: state.app.language,
+        products: state.admin.products,
 
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
+        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
+        fetchAllProductRedux: () => dispatch(actions.fetchAllProduct())
     };
 };
 

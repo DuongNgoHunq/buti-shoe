@@ -77,6 +77,12 @@ class ManageDetailProduct extends Component {
             image: this.state.image,
             actions: hasMarkdownData === true ? CRUD_Actions.EDIT : CRUD_Actions.CREATE
         })
+        this.setState({
+            selectedProduct: '',
+            contentHTML: "",
+            contentMarkdown: "",
+            description: "",
+        })
 
     }
 

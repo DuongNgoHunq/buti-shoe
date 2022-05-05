@@ -9,7 +9,8 @@ import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import './ManageDetailNews.scss';
 import Select from 'react-select';
-import { getdetailInforProduct } from '../../../../services/productService';
+import { getDetailNews } from '../../../../services/newsService';
+import { CRUD_Actions } from '../../../../utils/constant';
 
 
 
@@ -26,6 +27,10 @@ class ManageDetailNews extends Component {
             description: '',
             selectedNews: '',
             listNews: [],
+            hasMarkdownData: false,
+            action: '',
+
+
         }
     }
 
@@ -53,9 +58,14 @@ class ManageDetailNews extends Component {
         if (prevProps.newsList !== this.props.newsList) {
             let dataSelect = this.buildDataInputSelect(this.props.newsList)
             this.setState({
-                listNews: dataSelect
+                listNews: dataSelect,
+                contentHTML: "",
+                contentMarkdown: "",
+                description: "",
+
             })
         }
+
     }
 
     handleEditorChange = ({ html, text }) => {
@@ -66,23 +76,32 @@ class ManageDetailNews extends Component {
     }
 
     handleSaveContentMarkdown = () => {
+        let { hasMarkdownData } = this.state;
         this.props.saveNewsDetailRedux({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
-            newsId: this.state.selectedNews.value
+            newsId: this.state.selectedNews.value,
+            action: hasMarkdownData === true ? CRUD_Actions.EDIT : CRUD_Actions.CREATE
+        })
+        this.setState({
+            selectedNews: '',
+            contentHTML: "",
+            contentMarkdown: "",
+            description: "",
         })
     }
 
     handleChangeSelect = async (selectedNews) => {
         this.setState({ selectedNews });
-        let res = await getdetailInforProduct(selectedNews.value);
-        if (res && res.errCode === 0 && res.data && res.data.Markdown) {
-            let markdown = res.data.Markdown;
+        let res = await getDetailNews(selectedNews.value);
+        console.log('Check response: ', res);
+        if (res && res.errCode === 0 && res.data && res.data.NewsMarkdown) {
+            let NewsMarkdown = res.data.NewsMarkdown;
             this.setState({
-                contentHTML: markdown.contentHTML,
-                contentMarkdown: markdown.contentMarkdown,
-                description: markdown.description,
+                contentHTML: NewsMarkdown.contentHTML,
+                contentMarkdown: NewsMarkdown.contentMarkdown,
+                description: NewsMarkdown.description,
                 hasMarkdownData: true,
             })
         }
@@ -106,7 +125,7 @@ class ManageDetailNews extends Component {
 
 
     render() {
-        let arrNews = this.state.newsRedux;
+        let { hasMarkdownData } = this.state;
         return (
             <div className='manage-news-container container-xl mb-5 '>
                 <div className='title'>Manage detail news's information</div>
@@ -143,13 +162,19 @@ class ManageDetailNews extends Component {
                         style={{ height: '500px' }}
                         renderHTML={text => mdParser.render(text)}
                         onChange={this.handleEditorChange}
+                        value={this.state.contentMarkdown}
                     />
 
                 </div>
-                <button className='save-content-news btn-primary py-2 px-3 mb-5'
+                <button
+                    className={hasMarkdownData === true ? "save-content-news" : "create-content-news"}
                     onClick={() => this.handleSaveContentMarkdown()}
                 >
-                    Luu thong tin
+                    {hasMarkdownData === true ?
+                        <span>Luu thay doi</span> :
+                        <span>Tao thong tin</span>
+
+                    }
                 </button>
                 <div className=''></div>
             </div>

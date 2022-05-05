@@ -52,6 +52,20 @@
                 padding: 0 5px;
             }
 
+            .form-select-header {
+                width: 200px;
+
+            }
+
+            .css-yk16xz-control {
+                width: 200px;
+                min-width: 200px;
+
+                &:hover {
+                    width: 200px;
+                }
+            }
+
             .language-vi {
                 opacity: 0.2;
                 cursor: pointer;

@@ -14,15 +14,16 @@ class NewsPage extends Component {
         return (
             <div>
                 <HomeHeader isShowSlider={false} />
-                <div className='new-container flex-md-row-reverse container-xl'>
-                    <div className='row'>
+                <div className='new-container container-xl'>
+                    <div className='flex-row-reverse row'>
+                        <div className='col-xl-9 col-md-12 col-sm-12 new-right justify-content-sm-center'>
+                            <NewsContent />
 
+                        </div>
                         <div className='col-xl-3 col-md-12 col-sm-12 new-left justify-content-sm-center'>
                             <Sidebar />
                         </div>
-                        <div className='col-xl-9 col-md-12 col-sm-12 new-right justify-content-sm-center'>
-                            <NewsContent />
-                        </div>
+
                     </div>
                 </div>
                 <HomeFooter />

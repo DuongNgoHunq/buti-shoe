@@ -24,7 +24,7 @@ const editNewsService = (inputData) => {
 }
 
 const getDetailNews = (id) => {
-    return axios.get(`/api/get-all-news?id=${id}`)
+    return axios.get(`/api/get-detail-news?id=${id}`)
 
 }
 
@@ -70,5 +70,6 @@ export {
     getAllBrand, deleteNewsService,
     deleteBrandService, editNewsService,
     editBrandService, getDetailNews,
-    saveDetailNews, saveDetailBrand
+    saveDetailNews, saveDetailBrand,
+
 }

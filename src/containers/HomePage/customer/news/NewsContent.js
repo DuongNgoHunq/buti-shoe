@@ -22,7 +22,8 @@ class NewsContent extends Component {
             })
         }
     }
-    handleViewDetailProduct = (news) => {
+
+    handleViewDetailNews = (news) => {
         this.props.history.push(`/detail-news/${news.id}`)
 
     }
@@ -44,7 +45,10 @@ class NewsContent extends Component {
                                 imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                             }
                             return (
-                                <div className='news-content-child col-md-4 col-sm-12 '>
+                                <div className='news-content-child col-md-4 col-sm-12 '
+                                    onClick={() => this.handleViewDetailNews(item)}
+
+                                >
                                     <div className='parent'>
                                         <div className='news-content-img-lg'
                                             style={{ backgroundImage: `url(${imageBase64})` }}

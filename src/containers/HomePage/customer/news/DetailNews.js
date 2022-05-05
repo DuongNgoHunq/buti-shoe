@@ -1,88 +1,90 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import HomeHeader from '../../HomeHeader';
-// import './DetailNews.scss';
-import { getdetailInforProduct } from '../../../../services/productService';
+import './DetailNews.scss';
 import { NavLink } from 'react-router-dom';
 import HomeFooter from '../../Section/HomeFooter';
+import Sidebar from './Sidebar';
+import { getDetailNews } from '../../../../services/newsService';
 
 class DetailNews extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            detailProduct: {}
+            detailNews: {},
+            image: '',
         }
     }
 
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id;
-            let res = await getdetailInforProduct(id);
+            let res = await getDetailNews(id);
+            console.log('Check res chi tiet news: ', res);
+
             if (res && res.errCode === 0) {
                 this.setState({
-                    detailProduct: res.data
+                    detailNews: res.data,
+
                 })
+                console.log('Check iamge: ', this.state.image);
+
             }
 
         }
     }
+    async componentDidUpdate(prevProps) {
+        console.log('check param: ', prevProps.match.params.id, this.props.match.params.id);
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            let id = this.props.match.params.id;
+            let res = await getDetailNews(id);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    detailNews: res.data
+                })
+            }
+        }
+    }
     render() {
 
-        let { detailProduct } = this.state;
-        console.log("Check state: ", detailProduct);
+        let { detailNews } = this.state;
+
+        console.log("Check state: ", detailNews);
         return (
             <>
                 <HomeHeader isShowSlider={false} />
-                <div className='doctor-detail-container container-xl'>
-                    <div className='container-xl'>
-                        <div className='intro-product row '>
-                            <div
+                <div className='news-detail-container container-xl '>
+                    <div className='flex-row-reverse row'>
 
-                                className='content-left col-md-5 col-sm-12 image-detail'
-                                style={{ backgroundImage: `url(${detailProduct.image})` }}
-                            >
+                        <div className='intro-product row col-xl-9 col-md-12 col-sm-12 new-detail-right'>
+                            <div className='intro-news'>
+                                <div className='title-news'>
+                                    {detailNews.title}
+                                </div>
+                                <div className='description-news'>
+                                    {detailNews.description}
+                                </div>
+                                <div className='image-detail-news'
+                                    style={{ backgroundImage: `url(${detailNews.image})` }}
+                                >
+                                </div>
+                                <div className='intro-markdown-news '>
+                                    {detailNews.NewsMarkdown && detailNews.NewsMarkdown.contentHTML
+                                        && <div dangerouslySetInnerHTML={{ __html: detailNews.NewsMarkdown.contentHTML }}>
 
-                            </div>
-                            <div className='content-right col-md-7 col-sm-12'>
-                                <div className='name-product'>
-                                    {detailProduct.name}
+                                        </div>
+                                    }
                                 </div>
-                                <div className='desciption-product'>
-                                    {detailProduct.description}
-                                </div>
-                                <div className='price-product'>
-                                    {detailProduct.price} VND
-                                </div>
-                                <div className='delivery-return '>CHÍNH SÁCH GIAO HÀNG &amp; ĐỔI TRẢ</div>
-                                <div className='delivery-return '>HƯỚNG DẪN BẢO QUẢN</div>
-                                <div className='contact'>
-                                    <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
-                                </div>
-                                <button className='btn btn-outline-dark px-4 py-2 '>
-                                    Add to Cart
-                                </button>
-                                <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
-                                    Go to Cart
-                                </NavLink>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='intro-markdown-product '>
-                        {detailProduct.Markdown && detailProduct.Markdown.contentHTML
-                            && <div dangerouslySetInnerHTML={{ __html: detailProduct.Markdown.contentHTML }}>
-
-                            </div>
-                        }
+                        <div className='col-xl-3 col-md-12 col-sm-12 new-left '>
+                            <Sidebar />
+                        </div>
                     </div>
-                    <div className='detail-infor-product row'>
-
-                    </div>
-                    <div className='comment-product'></div>
                 </div>
-                <HomeFooter />
+                <HomeFooter className="footer-detail-news" />
             </>
-
         );
     }
 }
@@ -96,6 +98,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+
     };
 };
 

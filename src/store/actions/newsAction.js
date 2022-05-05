@@ -9,7 +9,7 @@ import {
     editNewsService,
     editBrandService,
     saveDetailNews,
-    saveDetailBrand
+    saveDetailBrand,
 
 } from '../../services/newsService';
 
