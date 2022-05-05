@@ -51,10 +51,28 @@ let handleDeleteNews = async (req, res) => {
     let message = await newsService.deleteNews(req.body.id);
     return res.status(200).json(message);
 }
+
+let handleGetDetailNews = async (req, res) => {
+    try {
+        let infor = await newsService.getDetailNewById(req.query.id);
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server!'
+        })
+    }
+}
+
+
 module.exports = {
     handleGetAllNews,
     handleCreateNews,
     handleEditNews,
     handleDeleteNews,
-    handleSaveDetailNews
+    handleSaveDetailNews,
+    handleGetDetailNews
 }

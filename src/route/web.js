@@ -49,6 +49,8 @@ let initWebRouter = (app) => {
     router.post('/api/create-new-news', newsController.handleCreateNews)
     router.post('/api/save-detail-news', newsController.handleSaveDetailNews)
 
+    router.get('/api/get-detail-news', newsController.handleGetDetailNews)
+
     router.put('/api/edit-news', newsController.handleEditNews)
     router.delete('/api/delete-news', newsController.handleDeleteNews)
     // router.get('/api/get-detail-news', newsController.handleGetDetailNews)

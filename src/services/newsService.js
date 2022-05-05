@@ -122,12 +122,28 @@ let saveDetailInforNews = (inputData) => {
                 })
             }
             else {
-                await db.NewsMarkdown.create({
-                    contentHTML: inputData.contentHTML,
-                    contentMarkdown: inputData.contentMarkdown,
-                    description: inputData.description,
-                    newsId: inputData.newsId
-                })
+                if (inputData.action === 'CREATE') {
+                    await db.NewsMarkdown.create({
+                        contentHTML: inputData.contentHTML,
+                        contentMarkdown: inputData.contentMarkdown,
+                        description: inputData.description,
+                        newsId: inputData.newsId
+                    })
+                } else if (inputData.action === 'EDIT') {
+                    let newsMarkdown = await db.NewsMarkdown.findOne({
+                        where: { newsId: inputData.newsId },
+                        raw: false
+                    })
+                    if (newsMarkdown) {
+                        newsMarkdown.contentHTML = inputData.contentHTML;
+                        newsMarkdown.contentMarkdown = inputData.contentMarkdown;
+                        newsMarkdown.description = inputData.description;
+                        newsMarkdown.newsId = inputData.newsI;
+
+                        await newsMarkdown.save()
+                    }
+                }
+
                 resolve({
                     errCode: 0,
                     errMessage: `Save news's infor success!`
@@ -138,8 +154,48 @@ let saveDetailInforNews = (inputData) => {
         }
     })
 }
+
+let getDetailNewById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!id) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter!'
+                })
+            } else {
+                let data = await db.News.findOne({
+
+                    where: {
+                        id: id
+                    },
+                    include: [
+                        {
+                            model: db.NewsMarkdown,
+                            attributes: ['contentHTML', 'contentMarkdown', 'description', 'image']
+                        }
+                    ], raw: false,
+                    nest: true
+                })
+                if (data && data.image) {
+                    data.image = new Buffer(data.image, 'base64').toString('binary')
+
+                }
+
+                resolve({
+                    errCode: 0,
+                    data: data
+                })
+            }
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
+
 module.exports = {
     getAllNews, createNewNews,
     updateNewsData, deleteNews,
-    saveDetailInforNews
+    saveDetailInforNews,
+    getDetailNewById
 }
