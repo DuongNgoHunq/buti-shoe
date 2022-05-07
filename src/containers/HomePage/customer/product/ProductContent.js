@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import imgProduct from '../../../../assets/new-product/nike-do.jpg';
 import { FormattedMessage } from 'react-intl';
 import "slick-carousel/slick/slick-theme.css";
 import * as actions from '../../../../store/actions';
@@ -36,7 +35,7 @@ class ProductContent extends Component {
         return (
             <div className='product-container container-xl'>
                 <h3 className='content-title'>
-                    Sản phẩm mới nhất
+                    <FormattedMessage id="homepage.newest-product" />
                 </h3>
                 <div className='row product-container-body'>
                     {arrAllProduct && arrAllProduct.length &&
@@ -54,8 +53,8 @@ class ProductContent extends Component {
 
                                         <img src={imageBase64} className="card-img-top" alt="..." />
                                         <div className="card-body text-center">
-                                            <p className="card-title">Giày Thể Thao XSPORT Ni.ke Jordan 1 High Hồng trắng REP</p>
-                                            <p className="card-price lead fw-bold">1,490,000  VND</p>
+                                            <p className="card-title">{item.name}</p>
+                                            <p className="card-price lead fw-bold">{item.price}  VND</p>
                                             <a href="#" className="btn btn-outline-dark">Buy now </a>
                                         </div>
                                     </div>

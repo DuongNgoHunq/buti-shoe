@@ -27,7 +27,7 @@
             "manager-seller": "Manager seller",
             "manager-customer": "Manager customer",
             "crud": "CRUD user",
-            "crud-redux": "CRUD redux",
+            "crud-redux": "Manager all user",
             "manager-product": "Manager products",
             "manager-detail-product": "Manager detail product",
             "product": "Products",
@@ -85,6 +85,15 @@
         "new-product": "New products",
         "news": "News",
         "brand": "Outstanding brand",
-        "more-infor": "More infor"
+        "more-infor": "More infor",
+        "outstand-product": "Outstanding product",
+        "outstand-seller": "Outstanding seller",
+        "newest-product": "Newest product",
+        "product-categories": "Product categories",
+        "collection": "Collection",
+        "accessory": "Accessory",
+        "price-filter": "Price fillter",
+        "size-filter": "Size fillter",
+        "product-type": "Product type"
     }
 }

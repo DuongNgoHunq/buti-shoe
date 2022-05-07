@@ -50,7 +50,7 @@ class OutstandProduct extends Component {
                 <div className='section-container container-xl'>
                     <div className='section-header'>
                         <span className='title-section'>
-                            <FormattedMessage id="homepage.new-product" />
+                            <FormattedMessage id="homepage.outstand-product" />
                         </span>
                         <button className='btn-section'
                             onClick={() => this.gotoProduct()}

@@ -27,7 +27,7 @@
             "manager-seller": "Quản lý nhân viên",
             "manager-customer": "Quản lý khách hàng",
             "crud": "CRUD user",
-            "crud-redux": "CRUD redux",
+            "crud-redux": "Quản lý người dùng",
             "product": "Sản phẩm",
             "manager-brand": "Quản lý thương hiệu",
             "manager-product": "Quản lý sản phẩm",
@@ -84,6 +84,15 @@
         "new-product": "Sản phẩm mới",
         "news": "Tin tức",
         "brand": "Thương hiệu nổi bật",
-        "more-infor": "Xem thêm"
+        "more-infor": "Xem thêm",
+        "outstand-product": "Sản phẩm nổi bật",
+        "outstand-seller": "Nhân viên nổi bật",
+        "newest-product": "Sản phẩm mới nhất",
+        "product-categories": "Danh mục sản phẩm",
+        "collection": "Bộ sưu tập",
+        "accessory": "Phụ kiện",
+        "price-filter": "Lọc giá",
+        "size-filter": "Lọc theo size",
+        "product-type": "Loại sản phẩm"
     }
 }

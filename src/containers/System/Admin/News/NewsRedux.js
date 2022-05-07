@@ -162,7 +162,7 @@ class NewsManage extends Component {
                                             <FormattedMessage id="manage-product.upload-image" />
 
                                             <i className="fas fa-upload"></i></label>
-                                        <div className='preview-image'
+                                        <div className='preview-image img-thumbnail'
                                             style={{ backgroundImage: `url(${this.state.previewImgURL})` }}
                                             onClick={() => this.handlePreviewImg()}
                                         ></div>

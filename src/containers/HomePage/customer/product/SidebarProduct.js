@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+
 
 class SidebarProduct extends Component {
 
@@ -9,12 +11,14 @@ class SidebarProduct extends Component {
         return (
             <div className='sidebar-product-blog'>
                 <h3 className='sidebar-title'>
-                    Danh mục sản phẩm
+                    <FormattedMessage id="homepage.product-categories" />
                 </h3>
                 <div className='sidebar-product-content row'>
                     <div className='child-sidebar d-flex'>
                         <input type='checkbox' />
-                        <div className='element-product'> Bộ sưu tập</div>
+                        <div className='element-product'>
+                            <FormattedMessage id="homepage.collection" />
+                        </div>
                         <span className='status-quanlity'>(59)</span>
                     </div>
                     <div className='child-sidebar d-flex '>
@@ -39,7 +43,9 @@ class SidebarProduct extends Component {
                     </div>
                     <div className='child-sidebar d-flex '>
                         <input type='checkbox' />
-                        <div className='element-product'>Phụ kiện </div>
+                        <div className='element-product'>
+                            <FormattedMessage id="homepage.accessory" />
+                        </div>
                         <span className='status-quanlity'>(10)</span>
                     </div>
 
@@ -47,7 +53,7 @@ class SidebarProduct extends Component {
 
                 </div>
                 <h3 className='sidebar-title'>
-                    Lọc giá
+                    <FormattedMessage id="homepage.price-filter" />
                 </h3>
                 <div className='sidebar-product-content row'>
                     <div className='child-sidebar d-flex'>
@@ -77,14 +83,11 @@ class SidebarProduct extends Component {
                 </div>
 
                 <h3 className='sidebar-title'>
-                    Lọc theo size
+                    <FormattedMessage id="homepage.size-filter" />
                 </h3>
                 <div className='sidebar-product-content row'>
 
-                    <div className='child-sidebar d-flex '>
-                        <input type='checkbox' />
-                        <div className='element-product'> 39 </div>
-                    </div>
+
                     <div className='child-sidebar d-flex '>
                         <input type='checkbox' />
                         <div className='element-product'>40 </div>
@@ -101,13 +104,9 @@ class SidebarProduct extends Component {
                         <input type='checkbox' />
                         <div className='element-product'>43 </div>
                     </div>
-                    <div className='child-sidebar d-flex '>
-                        <input type='checkbox' />
-                        <div className='element-product'>44</div>
-                    </div>
                 </div>
                 <h3 className='sidebar-title'>
-                    Loại sản phẩm
+                    <FormattedMessage id="homepage.product-type" />
                 </h3>
                 <div className='sidebar-product-content row'>
 

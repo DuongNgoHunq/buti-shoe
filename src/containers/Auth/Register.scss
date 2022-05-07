@@ -1,32 +1,34 @@
-.login-background {
+.Register-background {
     height: 100vh;
     background: linear-gradient(135deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
 
-    .login-containner {
-        width: 300px;
+    .Register-containner {
+        width: 400px;
         margin: 0 auto;
         height: 100vh;
         border-radius: 10px;
         background-color: white;
         position: absolute;
         margin: auto;
+        margin-top: 30px;
         top: 0;
         bottom: 0;
         right: 0;
         left: 0;
-        height: 450px;
+        height: 520px;
+        padding-top: 0px;
 
-        .login-content {
+        .Register-content {
             padding: 10px;
 
-            .text-login {
+            .text-Register {
                 text-align: center;
                 font-weight: 600px;
                 font-size: 24px;
                 padding: 10px;
             }
 
-            .login-input {
+            .Register-input {
                 margin: 7px 0;
 
                 .custom-input-password {
@@ -43,7 +45,7 @@
 
             }
 
-            .btn-login {
+            .btn-Register {
                 width: 100%;
                 margin: 10px 0;
                 height: 35px;
@@ -59,11 +61,12 @@
                 font-size: 12px;
             }
 
-            .social-login {
+            .social-Register {
                 display: flex;
                 text-align: center;
                 justify-content: center;
                 margin-top: 10px;
+
 
                 .google {
                     font-size: 30px;

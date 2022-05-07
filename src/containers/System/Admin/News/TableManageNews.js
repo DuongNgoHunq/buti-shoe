@@ -59,7 +59,7 @@ class TableManageNews extends Component {
                                                 onClick={() => this.handleEditNews(item)}
 
                                             >
-                                                <i className="fas fa-pencil-alt"></i>
+                                                <i class="far fa-edit"></i>
                                             </button>
 
                                             <button className='btn-delete'

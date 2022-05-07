@@ -19,6 +19,7 @@ import NewsPage from './HomePage/customer/news/NewsPage';
 import Contact from './HomePage/customer/news/Contact';
 import CartPage from './HomePage/customer/cart/CartPage';
 import DetailNews from './HomePage/customer/news/DetailNews';
+import Register from './Auth/Register';
 
 class App extends Component {
 
@@ -52,6 +53,7 @@ class App extends Component {
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
+                                    <Route path={path.REGISTER} component={Register} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_PRODUCT} component={DetailProduct} />

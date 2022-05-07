@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import './OustandSeller.scss';
 import Slider from "react-slick";
 import * as actions from '../../../store/actions';
-// import { LANGUAGE } from '../../../utils'
 import { LANGUAGES } from '../../../utils/constant';
+import { FormattedMessage } from 'react-intl';
 
 
 class OustandSeller extends Component {
@@ -36,8 +36,14 @@ class OustandSeller extends Component {
                 <div className='section-share  container-xl '>
                     <div className='section-container section-body-seller'>
                         <div className='section-header'>
-                            <span className='title-section'>Nhan vien nổi bật</span>
-                            <button className='btn-section'>Xem thêm</button>
+                            <span className='title-section'>
+                                <FormattedMessage id="homepage.outstand-seller" />
+
+                            </span>
+                            <button className='btn-section'>
+                                <FormattedMessage id="homepage.more-infor" />
+
+                            </button>
                         </div>
                         <div className='section-body '>
                             <Slider {...this.props.settings}>

@@ -11,7 +11,7 @@ import NewsManage from '../containers/System/Admin/News/NewsRedux';
 import BrandManage from '../containers/System/Admin/News/BrandRedux';
 import ManageDetailNews from '../containers/System/Admin/News/ManageDetailNews';
 import ManageDetailBrand from '../containers/System/Admin/News/ManageDetailBrand';
-
+import WelcomeAdmin from '../containers/System/Admin/WelcomeAdmin';
 
 class System extends Component {
     render() {
@@ -22,6 +22,8 @@ class System extends Component {
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
+                            <Route path="/system/welcome-admin" component={WelcomeAdmin} />
+
                             <Route path="/system/user-manage" component={UserManage} />
 
                             <Route path="/system/user-redux" component={UserRedux} />

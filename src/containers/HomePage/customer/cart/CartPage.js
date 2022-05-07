@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import HomeHeader from '../../HomeHeader';
 import HomeFooter from '../../Section/HomeFooter';
 import { Link } from 'react-router-dom';
+import image from '../../../../assets/new-product/nike-do.jpg'
 import './CartPage.scss'
 
 class CartPage extends Component {
@@ -14,8 +15,9 @@ class CartPage extends Component {
             <div>
                 <HomeHeader isShowSlider={false} />
                 <div className='cart-container container-xl my-5'>
+                    <div className='title-cart'>Giỏ hàng của bạn</div>
+
                     <table className="table caption-top">
-                        <caption>Danh sách giỏ hàng</caption>
                         <thead>
                             <tr>
                                 <th scope="col">Ảnh</th>
@@ -29,10 +31,10 @@ class CartPage extends Component {
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    ảnh
+                                    <img src={image} />
                                 </th>
                                 <td>Nike 1</td>
-                                <td>400000 đ</td>
+                                <td className='price'>400000 đ</td>
                                 <td>
                                     <button>-</button>
                                     <button>1</button>
@@ -40,23 +42,24 @@ class CartPage extends Component {
 
                                 </td>
                                 <td>
-                                    400000 đ &nbsp;
+                                    <span className='price'>  400000 đ &nbsp;</span>
                                     <i className="fas fa-trash-alt"></i>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    ảnh
+                                    <img src={image} />
+
                                 </th>
                                 <td>Nike 1</td>
-                                <td>400000 đ</td>
+                                <td className='price'>400000 đ</td>
                                 <td>
                                     <button>-</button>
                                     <button>1</button>
                                     <button>+</button>
                                 </td>
                                 <td>
-                                    400000 đ &nbsp;
+                                    <span className='price'>  400000 đ &nbsp;</span>
                                     <i className="fas fa-trash-alt"></i>
                                 </td>
                             </tr>
@@ -71,7 +74,7 @@ class CartPage extends Component {
                         </div>
                         <div>
                             <button className='btn btn-outline-dark px-4 py-2'>Mua ngay</button>&nbsp;
-                            <span className="pricesTotal">7000000 đ</span>
+                            <span className="pricesTotal">8000000 đ</span>
                         </div>
                     </div>
 

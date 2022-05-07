@@ -223,7 +223,7 @@ class ProductManage extends Component {
                                     <FormattedMessage id="manage-product.image" />
                                 </label>
                                 <div className='preview-img-container'>
-                                    <input type='file' id='previewImg' hidden
+                                    <input type='file' id='previewImg' className='img-thumbnail' hidden
                                         onChange={(event) => this.handleOnchangeImage(event)}
 
                                     />

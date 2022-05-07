@@ -1,4 +1,26 @@
 .cart-container {
+    .title-cart {
+        font-weight: bolder;
+        font-size: 25px;
+    }
+
+    table {
+        tr {
+            img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .price {
+                color: rgb(192, 36, 36);
+            }
+
+            i {
+                cursor: pointer;
+            }
+        }
+    }
+
     button {
         border: 1px solid #ddd;
         padding: 10px 15px;
