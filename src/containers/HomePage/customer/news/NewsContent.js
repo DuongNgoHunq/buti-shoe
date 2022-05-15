@@ -29,7 +29,6 @@ class NewsContent extends Component {
     }
 
     render() {
-        console.log('Check news list: ', this.state.arrNews);
         let arrNews = this.state.arrNews;
         let { language } = this.props;
         return (

@@ -31,7 +31,6 @@ class ProductContent extends Component {
     render() {
         let arrAllProduct = this.state.arrAllProduct;
         let { language } = this.props;
-        console.log('Check arr product: ', arrAllProduct);
         return (
             <div className='product-container container-xl'>
                 <h3 className='content-title'>
@@ -47,6 +46,7 @@ class ProductContent extends Component {
                             console.log('Check img base 64: ', imageBase64);
                             return (
                                 <div className='col-xl-3 col-md-4 col-sm-6'
+                                    key={index}
                                     onClick={() => this.handleViewDetailProduct(item)}
                                 >
                                     <div className="card" >

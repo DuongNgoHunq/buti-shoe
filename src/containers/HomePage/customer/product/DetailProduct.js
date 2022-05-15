@@ -5,6 +5,14 @@ import './DetailProduct.scss';
 import { getdetailInforProduct } from '../../../../services/productService';
 import { NavLink } from 'react-router-dom';
 import HomeFooter from '../../Section/HomeFooter';
+import { toast } from 'react-toastify';
+
+
+export const initialValues = []
+
+if (!localStorage.getItem("product")) {
+    localStorage.setItem("product", JSON.stringify(initialValues))
+}
 
 class DetailProduct extends Component {
     constructor(props) {
@@ -13,6 +21,7 @@ class DetailProduct extends Component {
             detailProduct: {}
         }
     }
+
 
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
@@ -23,11 +32,9 @@ class DetailProduct extends Component {
                     detailProduct: res.data
                 })
             }
-
         }
     }
     async componentDidUpdate(prevProps) {
-        console.log('check param: ', prevProps.match.params.id, this.props.match.params.id);
         if (prevProps.match.params.id !== this.props.match.params.id) {
             let id = this.props.match.params.id;
             let res = await getdetailInforProduct(id);
@@ -38,10 +45,36 @@ class DetailProduct extends Component {
             }
         }
     }
+
+    CheckIdProduct = (item) => {
+        const data = JSON.parse(localStorage.getItem("product"))
+        const pro = [...data]
+        for (let i = 0; i < pro.length; i++) {
+            if (item.id === pro[i].id) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    handleAddToCart = (item) => {
+
+        const data = JSON.parse(localStorage.getItem("product"))
+        // if (data) {
+        const pro = [...data]
+        if (this.CheckIdProduct(item)) {
+            localStorage.setItem("product", JSON.stringify([...pro, item]))
+            toast.success("Add product to cart success!")
+
+        }
+        // }
+
+
+    }
+
     render() {
 
         let { detailProduct } = this.state;
-        console.log("Check state: ", detailProduct);
         return (
             <>
                 <HomeHeader isShowSlider={false} />
@@ -70,7 +103,9 @@ class DetailProduct extends Component {
                                 <div className='contact'>
                                     <p>Tổng đài bán hàng: <span className='phone-number'>097.567.1080</span></p>
                                 </div>
-                                <button className='btn btn-outline-dark px-4 py-2 '>
+                                <button className='btn btn-outline-dark px-4 py-2 '
+                                    onClick={() => this.handleAddToCart(detailProduct)}
+                                >
                                     Add to Cart
                                 </button>
                                 <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">

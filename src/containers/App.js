@@ -22,7 +22,6 @@ import DetailNews from './HomePage/customer/news/DetailNews';
 import Register from './Auth/Register';
 
 class App extends Component {
-
     handlePersistorState = () => {
         const { persistor } = this.props;
         let { bootstrapped } = persistor.getState();

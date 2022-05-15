@@ -20,21 +20,18 @@ class DetailNews extends Component {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id;
             let res = await getDetailNews(id);
-            console.log('Check res chi tiet news: ', res);
 
             if (res && res.errCode === 0) {
                 this.setState({
                     detailNews: res.data,
 
                 })
-                console.log('Check iamge: ', this.state.image);
 
             }
 
         }
     }
     async componentDidUpdate(prevProps) {
-        console.log('check param: ', prevProps.match.params.id, this.props.match.params.id);
         if (prevProps.match.params.id !== this.props.match.params.id) {
             let id = this.props.match.params.id;
             let res = await getDetailNews(id);
@@ -49,7 +46,6 @@ class DetailNews extends Component {
 
         let { detailNews } = this.state;
 
-        console.log("Check state: ", detailNews);
         return (
             <>
                 <HomeHeader isShowSlider={false} />

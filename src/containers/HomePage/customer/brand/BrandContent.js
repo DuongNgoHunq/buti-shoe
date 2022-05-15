@@ -29,7 +29,6 @@ class BrandContent extends Component {
 
         let arrBrand = this.state.arrBrand;
         let { language } = this.props;
-        console.log('Check brand list: ', arrBrand, language);
 
         return (
             <div className='sidebar-blog'>
