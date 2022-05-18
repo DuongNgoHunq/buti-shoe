@@ -5,7 +5,7 @@ import productController from '../controllers/productController';
 import sellerController from "../controllers/sellerController";
 import newsController from "../controllers/newsController";
 import brandController from "../controllers/brandController";
-
+import customerController from "../controllers/customerController";
 
 let router = express.Router();
 
@@ -29,15 +29,12 @@ let initWebRouter = (app) => {
 
     //api product
     router.get('/api/get-all-products', productController.handleGetAllProduct)
-
     router.get('/api/get-new-products', productController.handleGetNewProduct)
     // router.get('/api/get-top-products', productController.handleGetTopProduct)
-
 
     router.post('/api/create-new-product', productController.handleCreateNewProduct)
     router.post('/api/save-infor-product', productController.handlePostInforProduct)
     router.get('/api/get-detail-product', productController.handleGetDetailProduct)
-
     router.put('/api/edit-product', productController.handleEditProduct)
     router.delete('/api/delete-product', productController.handleDeleteProduct)
 
@@ -48,13 +45,10 @@ let initWebRouter = (app) => {
     router.get('/api/get-all-news', newsController.handleGetAllNews)
     router.post('/api/create-new-news', newsController.handleCreateNews)
     router.post('/api/save-detail-news', newsController.handleSaveDetailNews)
-
     router.get('/api/get-detail-news', newsController.handleGetDetailNews)
-
     router.put('/api/edit-news', newsController.handleEditNews)
     router.delete('/api/delete-news', newsController.handleDeleteNews)
     // router.get('/api/get-detail-news', newsController.handleGetDetailNews)
-
 
     //brand
     router.get('/api/get-all-brand', brandController.handleGetAllBrand)
@@ -64,6 +58,11 @@ let initWebRouter = (app) => {
     router.put('/api/edit-brand', brandController.handleEditBrand)
     router.delete('/api/delete-brand', brandController.handleDeleteBrand)
 
+    //receipt
+    router.post('/api/customer-order', customerController.handleOrder)
+    router.post('/api/verify-customer-order', customerController.handleVerifyOrder)
+
+    router.get(`/api/get-list-customer-order`, customerController.getCustomerOrder)
 
     router.get('/dnh', (req, res) => {
         return res.render("crud.ejs")

@@ -4,13 +4,9 @@ module.exports = {
         await queryInterface.createTable('Receipts', {
 
 
-    //         productId: DataTypes.INTEGER,
-    // customerId: DataTypes.INTEGER,
-    // promotionId: DataTypes.INTEGER,
-    // date: DataTypes.DATE,
-    // quantity: DataTypes.INTEGER,
-    // price: DataTypes.INTEGER,
-    // unitPrice: DataTypes.INTEGER,
+
+            // PhoneNumber: DataTypes.STRING,
+            // Address: DataTypes.TEXT
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -18,15 +14,20 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             productId: {
+                primaryKey: true,
+
                 type: Sequelize.INTEGER
             },
             customerId: {
                 type: Sequelize.INTEGER
             },
+            statusId: {
+                type: Sequelize.STRING
+            },
             promotionId: {
                 type: Sequelize.INTEGER
             },
-    
+
             quantity: {
                 type: Sequelize.INTEGER
             },
@@ -35,6 +36,25 @@ module.exports = {
             },
             unitPrice: {
                 type: Sequelize.INTEGER
+            },
+            PhoneNumber: {
+                type: Sequelize.STRING
+            },
+            Address: {
+                type: Sequelize.TEXT
+
+            },
+            size: {
+                type: Sequelize.INTEGER
+            },
+            name: {
+                type: Sequelize.STRING
+            },
+            gender: {
+                type: Sequelize.STRING
+            },
+            token: {
+                type: Sequelize.STRING
             },
             createdAt: {
                 allowNull: false,
