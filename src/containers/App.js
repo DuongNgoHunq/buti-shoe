@@ -20,6 +20,7 @@ import Contact from './HomePage/customer/news/Contact';
 import CartPage from './HomePage/customer/cart/CartPage';
 import DetailNews from './HomePage/customer/news/DetailNews';
 import Register from './Auth/Register';
+import VerifyEmailOrder from './HomePage/customer/VerifyEmailOrder';
 
 class App extends Component {
     handlePersistorState = () => {
@@ -62,6 +63,7 @@ class App extends Component {
                                     <Route path={path.CONTACT} component={Contact} />
                                     <Route path={path.CART} component={CartPage} />
                                     <Route path={path.DETAIL_NEWS} component={DetailNews} />
+                                    <Route path={path.VERIFY_EMAIL_ORDER} component={VerifyEmailOrder}></Route>
                                     {/* <Route path={path.DETAIL_BRAND} component={DetailBrand} /> */}
 
 

@@ -18,7 +18,7 @@
     },
     "menu": {
         "admin": {
-            "manager-sale": "Manager sales",
+            "manager-sale": "Manage receipt",
             "check-inventory": "Check inventories",
             "manager-recipet": "Manager recipet",
             "ship": "Ship",

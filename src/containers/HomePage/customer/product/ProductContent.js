@@ -43,7 +43,6 @@ class ProductContent extends Component {
                             if (item.image) {
                                 imageBase64 = new Buffer(item.image, 'base64').toString('binary')
                             }
-                            console.log('Check img base 64: ', imageBase64);
                             return (
                                 <div className='col-xl-3 col-md-4 col-sm-6'
                                     key={index}

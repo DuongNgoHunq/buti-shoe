@@ -35,6 +35,17 @@ const getTopSellerHomeService = (limit) => {
     return axios.get(`/api/get-top-seller?limit=${limit}`)
 
 }
+
+
+const postCustomerOder = (data) => {
+    return axios.post('/api/customer-order', data)
+}
+const verifyEmailOrder = (data) => {
+    console.log('Check data from service: ', data);
+
+    return axios.post('/api/verify-customer-order', data)
+}
+
 export {
     handleLoginAPI,
     getAllUser,
@@ -42,6 +53,8 @@ export {
     deleteUserService,
     editUserService,
     getAllCodeService,
-    getTopSellerHomeService
+    getTopSellerHomeService,
+    postCustomerOder,
+    verifyEmailOrder
 }
 

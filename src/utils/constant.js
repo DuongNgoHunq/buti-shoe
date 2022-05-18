@@ -13,7 +13,8 @@ export const path = {
     BRAND: '/brand',
     NEWSPAGE: '/news-page',
     CONTACT: '/contact',
-    CART: '/cart'
+    CART: '/cart',
+    VERIFY_EMAIL_ORDER: '/verify-order'
 };
 export const LANGUAGES = {
     VI: 'vi',

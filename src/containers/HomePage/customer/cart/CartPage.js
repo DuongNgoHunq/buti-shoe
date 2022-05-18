@@ -24,7 +24,7 @@ class CartPage extends Component {
         this.handleTotalMoney();
     }
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.arrItems !== this.state.arrItems) {
+        if (prevProps.arrItems !== this.props.arrItems) {
             this.handleTotalMoney();
 
         }
@@ -90,7 +90,7 @@ class CartPage extends Component {
         })
     }
     handleClearCart = () => {
-        // localStorage.removeItem("product");
+        localStorage.removeItem("product");
         this.setState({
             arrItems: []
         })

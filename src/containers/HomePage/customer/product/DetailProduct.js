@@ -57,6 +57,8 @@ class DetailProduct extends Component {
         return true;
     }
 
+
+
     handleAddToCart = (item) => {
 
         const data = JSON.parse(localStorage.getItem("product"))
